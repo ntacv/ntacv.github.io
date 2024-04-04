@@ -162,6 +162,22 @@ section{
 
 }
 
+a.fa {
+    padding: 13px 0px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+
+    color: white;
+    background: ;
+}
+
+.fa:hover {
+    opacity: 0.6;
+}
+
 /**********  MEDIA QUERIES  **********/
 @media screen and (max-width: 800px) {
     :root {

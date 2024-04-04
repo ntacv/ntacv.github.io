@@ -238,7 +238,7 @@ function Lang_list() {
       <Code_text>To contact me: </Code_text>
       <br />
       <br />
-      <Socials></Socials>
+      {/* <Socials></Socials> */}
     </>
   );
 }
