@@ -75,6 +75,44 @@ function Card_item(props) {
     </a>
   );
 }
+function Card_item_modern(props) {
+  // className="theme-{props.theme}"
+
+  return (
+    <a href={props.href} target="_blank">
+      <div
+        style={{
+          display: "inline-block",
+          width: "300px",
+          borderRadius: "0 0 20px 20px",
+          color: "black",
+          background: "lightgrey",
+          background:
+            "linear-gradient(180deg, rgba(99,99,99,1) 65%, lightgrey 78%, rgba(99,99,99,1) 100%)",
+          // rgba(148,148,148,1) 78%
+          overflow: "hidden",
+        }}
+      >
+        <img
+          src={
+            props.src
+              ? "assets/images/" + props.src
+              : "assets/images/formula1.webp"
+          }
+          style={{
+            width: "100%",
+            height: "180px",
+            objectFit: "cover",
+          }}
+        />
+
+        <div style={{ margin: "10px 20px" }}>
+          {props.children ? props.children : "Card"}
+        </div>
+      </div>
+    </a>
+  );
+}
 function Card_container(props) {
   return (
     <div
@@ -235,6 +273,9 @@ function Lang_list() {
       </Card_container>
       <br />
       <br />
+      <Card_item_modern src="enta" href="https://e-nta.fr">
+        Flood in Paris, a picture day
+      </Card_item_modern>
       <Code_text>To contact me: </Code_text>
       <br />
       <br />
