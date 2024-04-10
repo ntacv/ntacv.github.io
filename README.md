@@ -1,6 +1,8 @@
 # ntacv.github.io
 Main website for testing and production on [ntacv](https://ntacv.github.io)
 
+## Version
+v0.1.0
 
 Using tags for version reference: 
 vX.Y.Z notation 
