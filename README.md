@@ -15,4 +15,4 @@ with the following:
 Start counting versions: basic site, wrong architecture, few content...
 
 ## v0.2.0
-Added Photography section with mosaic gallery. 
+Added Photography section with mosaic gallery.
