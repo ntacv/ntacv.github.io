@@ -1,6 +1,8 @@
 // import { val_const } from "./Code_text.js";
 //import { MDBBtn, MDBIcon } from "mdb-react-ui-kit";
 
+//import Mosaic from "./components/Mosaic/Mosaic.js";
+
 //If you write your own code, remember hex color shortcuts (eg., #fff, #000)
 // returned value: (String) rgba(251,175,255,1)
 function hexToRgbA(hex, alpha = 1) {
@@ -160,6 +162,21 @@ Lang_percent.defaultProps = {
   percent: "50",
 };
 
+function Mosaic() {
+  return (
+    <div className="mosaic_container">
+      <img src="#" alt="Mosaic1" width="400" height="400" />
+      {/* top left 4/3 */}
+      <img src="#" alt="Mosaic2" width="400" height="400" />
+      {/* top right 3/4 */}
+      <img src="#" alt="Mosaic3" width="400" height="400" />
+      {/* bottom left 1/1 */}
+      <img src="#" alt="Mosaic4" width="400" height="400" />
+      {/* bottom right 4/3 */}
+    </div>
+  );
+}
+
 function Lang_list() {
   return (
     <>
@@ -238,6 +255,7 @@ function Lang_list() {
       <Code_text>To contact me: </Code_text>
       <br />
       <br />
+      <Mosaic></Mosaic>
       {/* <Socials></Socials> */}
     </>
   );
