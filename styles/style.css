@@ -18,6 +18,8 @@
     --font-size: 20px;
     --font-family: verdana, georgia, 'Courier New' ;
     --line-height: 1.5;
+
+    --size-mosaic: 300px;
 }
 
 
@@ -162,6 +164,46 @@ section{
 
 }
 
+
+.mosaic_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0px;
+    margin: auto;
+}
+.mosaic_container img{
+    /* border: white 2px solid; */
+    width: auto;
+    height:auto;
+    object-fit: cover;
+}
+@media all and (min-width: 800px){
+/* place self: align(vert) justify(horz)
+    start | end | center | stretch | baseline
+*/
+.mosaic_container img:nth-child(1){
+    height: var(--size-mosaic);
+    place-self: end end;
+    aspect-ratio: 4/3;
+}
+.mosaic_container img:nth-child(2) {
+    width: var(--size-mosaic);
+    place-self: end start;
+    aspect-ratio: 3/4;
+}
+.mosaic_container img:nth-child(3) {
+    width: var(--size-mosaic);
+    height: var(--size-mosaic);
+    place-self: start end ;
+    aspect-ratio: 1;
+}
+.mosaic_container img:nth-child(4) {
+    height: var(--size-mosaic);
+    place-self: start start;
+    aspect-ratio: 4/3;
+}
+}
+
 a.fa {
     padding: 13px 0px;
     font-size: 30px;
@@ -182,11 +224,17 @@ a.fa {
 @media screen and (max-width: 800px) {
     :root {
         --font-size: 16px;
+        
     }
     .desk{
         display: none;
     }
     .mobile{
         display: block;
+    }
+
+    .mosaic_container{
+        grid-template-columns: 1fr;
+        width: var(--size-mosaic);
     }
 }

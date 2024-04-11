@@ -1,8 +1,9 @@
 # ntacv.github.io
 Main website for testing and production on [ntacv](https://ntacv.github.io)
 
-## Version
-v0.1.0
+
+# Version v0.2.0
+
 
 Using tags for version reference: 
 vX.Y.Z notation 
@@ -15,3 +16,5 @@ with the following:
 ## v0.1.0
 Start counting versions: basic site, wrong architecture, few content...
 
+## v0.2.0
+Added Photography section with mosaic gallery.
