@@ -165,13 +165,33 @@ Lang_percent.defaultProps = {
 function Mosaic() {
   return (
     <div className="mosaic_container">
-      <img src="#" alt="Mosaic1" width="400" height="400" />
+      <img
+        src="https://e-nta.fr/photoEnta/photo/A.jpg"
+        alt="Mosaic1"
+        width="400"
+        height="400"
+      />
       {/* top left 4/3 */}
-      <img src="#" alt="Mosaic2" width="400" height="400" />
+      <img
+        src="https://e-nta.fr/photoEnta/photo/C.jpg"
+        alt="Mosaic2"
+        width="400"
+        height="400"
+      />
       {/* top right 3/4 */}
-      <img src="#" alt="Mosaic3" width="400" height="400" />
+      <img
+        src="https://e-nta.fr/photoEnta/photo/B.jpg"
+        alt="Mosaic3"
+        width="400"
+        height="400"
+      />
       {/* bottom left 1/1 */}
-      <img src="#" alt="Mosaic4" width="400" height="400" />
+      <img
+        src="https://e-nta.fr/photoEnta/photo/D.jpg"
+        alt="Mosaic4"
+        width="400"
+        height="400"
+      />
       {/* bottom right 4/3 */}
     </div>
   );
@@ -252,10 +272,15 @@ function Lang_list() {
       </Card_container>
       <br />
       <br />
+      <Code_text>Photography: </Code_text>
+      <br />
+      <br />
+      <Mosaic />
+      <br />
+      <br />
       <Code_text>To contact me: </Code_text>
       <br />
       <br />
-      <Mosaic></Mosaic>
       {/* <Socials></Socials> */}
     </>
   );
