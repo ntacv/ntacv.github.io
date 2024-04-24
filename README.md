@@ -5,6 +5,8 @@ Main website for testing and production on [ntacv](https://ntacv.github.io)
 # Version v0.2.0
 
 
+## Figma
+
 Using tags for version reference: 
 vX.Y.Z notation 
 with the following:
@@ -18,3 +20,8 @@ Start counting versions: basic site, wrong architecture, few content...
 
 ## v0.2.0
 Added Photography section with mosaic gallery.
+
+
+## TODO 
+
+- proper figma
