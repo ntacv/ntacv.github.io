@@ -24,4 +24,5 @@ Added Photography section with mosaic gallery.
 
 ## TODO 
 
-- proper figma
+1. proper figma
+2. 
