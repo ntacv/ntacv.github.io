@@ -7,6 +7,8 @@ Main website for testing and production on [ntacv](https://ntacv.github.io)
 
 ## Figma
 
+## Versions
+
 Using tags for version reference: 
 vX.Y.Z notation 
 with the following:
@@ -15,14 +17,14 @@ with the following:
 - Y on minor changes (new features, new pages, etc.)
 - Z for hotfixes (bug fixes, color changes, etc.)
 
-## v0.1.0
+### v0.1.0
 Start counting versions: basic site, wrong architecture, few content...
 
-## v0.2.0
+### v0.2.0
 Added Photography section with mosaic gallery.
 
 
 ## TODO 
 
 1. proper figma (with components)
-2. 
+2. create components 
