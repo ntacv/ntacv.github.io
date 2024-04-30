@@ -29,3 +29,7 @@ Added Photography section with mosaic gallery.
 1. proper figma (with components)
 2. create components 
 3. écouter sara
+
+
+Projet Sara
+next js and tailwind ui
