@@ -32,4 +32,7 @@ Added Photography section with mosaic gallery.
 4. code components
 
 Projet Sara
-next js and tailwind ui
+next js and tailwind UI
+
+## inspi
+[Hassan Bolajraf](https://hbolajraf.net/)
