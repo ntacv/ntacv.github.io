@@ -30,6 +30,7 @@ Added Photography section with mosaic gallery.
 2. create components 
 3. écouter sara
 4. code components
+5. archives (site 2018 2022, perso archi)
 
 Projet Sara
 next js and tailwind UI
