@@ -33,6 +33,7 @@ Added Photography section with mosaic gallery.
 5. code lang and project
 6. vlogs to yt
 7. archives (site 2018 2022, perso archi)
+8. cv link and auto fill
 
 Projet Sara
 next js and tailwind UI
