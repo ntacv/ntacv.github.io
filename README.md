@@ -38,5 +38,11 @@ Added Photography section with mosaic gallery.
 Projet Sara
 next js and tailwind UI
 
+## Sitemap
+
+1.profil (about me, cv)
+2.content, productions (photos, vlogs, logos, chartes, articles)
+3. projects, archives (websites, games)
+
 ## inspi
 [Hassan Bolajraf](https://hbolajraf.net/)
