@@ -40,8 +40,8 @@ next js and tailwind UI
 
 ## Sitemap
 
-1.profil (about me, cv)
-2.content, productions (photos, vlogs, logos, chartes, articles)
+1. profil (about me, cv, contact)
+2. content, productions (photos, vlogs, logos, chartes, articles)
 3. projects, archives (websites, games)
 
 ## inspi
