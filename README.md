@@ -41,6 +41,7 @@ next js and tailwind UI
 ## Sitemap
 
 1. profil (about me, cv, contact)
+    simple first screen, quantum second hieghtscreen, coding lines
 2. content, productions (photos, vlogs, logos, chartes, articles)
 3. projects, archives (websites, games)
 
