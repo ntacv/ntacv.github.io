@@ -9,6 +9,10 @@ Main website for testing and production on [ntacv](https://ntacv.github.io)
 ### Inspi
 - [Template Xfolio](https://www.figma.com/community/file/1191026033275812161/xfolio-portfolio-website-ui-kit)
 
+- Variables: fonts, colors, gradients, sizes, themes
+- Components: texts, buttons, cards, headers, navbars, sections
+- UX: sitemap, wireframe, persona
+- Design: pages layout
 - Compare storyboard with op
 
 ## Versions
@@ -43,7 +47,7 @@ having a subdomain in full html
 7. [ ] archives (site 2018 2022, perso archi)
 8. [ ] cv link and auto fill
 9. [ ] Playbook portfolio mis en avant
-10. [ ] Custom socials list (large left icon, right {name, desc: how I use it}
+10. [ ] Custom socials list (large left icon, right {name, desc: how I use it})
 Projet Sara
 next js and tailwind UI. PayloadCms
 Search: Flask, Dash py
