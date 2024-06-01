@@ -26,6 +26,9 @@ Added Photography section with mosaic gallery.
 
 ## TODO 
 
+1. [ ] proper todo
+2. [x] not so
+
 1. proper figma (with components)
 2. create components 
 3. écouter sara
