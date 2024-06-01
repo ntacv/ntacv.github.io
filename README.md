@@ -26,14 +26,14 @@ Added Photography section with mosaic gallery.
 
 ## TODO 
 
-1. proper figma (with components)
-2. create components 
-3. écouter sara
-4. code components
-5. code lang and project
-6. vlogs to yt
-7. archives (site 2018 2022, perso archi)
-8. cv link and auto fill
+1. [ ] proper figma (with components)
+2. [ ] create components 
+3. [ ] écouter sara
+4. [ ] code components
+5. [ ] code lang and project
+6. [ ] vlogs to yt
+7. [ ] archives (site 2018 2022, perso archi)
+8. [ ] cv link and auto fill
 
 Projet Sara
 next js and tailwind UI
