@@ -49,3 +49,4 @@ next js and tailwind UI
 ## inspi
 [Hassan Bolajraf](https://hbolajraf.net/)
 [CriticalByDesign](https://criticalbydesign.ch/)
+[Sarah Garcin](https://sarahgarcin.com/) - [webGuideFrugal](https://site.sarahgarcin.com/web-frugal/)
