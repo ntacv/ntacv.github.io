@@ -28,7 +28,7 @@ Added Photography section with mosaic gallery.
 
 1. [ ] proper figma (with components)
 2. [ ] create components 
-3. [ ] écouter sara
+3. [ ] écouter sara !!
 4. [ ] code components
 5. [ ] code lang and project
 6. [ ] vlogs to yt
