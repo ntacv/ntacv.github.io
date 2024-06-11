@@ -23,6 +23,10 @@ Start counting versions: basic site, wrong architecture, few content...
 ### v0.2.0
 Added Photography section with mosaic gallery.
 
+## Deployment
+
+check vercel, cloudflare
+having a subdomain in full html
 
 ## TODO 
 
