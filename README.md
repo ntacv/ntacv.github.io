@@ -41,7 +41,7 @@ having a subdomain in full html
 9. [ ] Playbook portfolio mis en avant
 10. [ ] Custom socials list (large left icon, right {name, desc: how I use it}
 Projet Sara
-next js and tailwind UI
+next js and tailwind UI. PayloadCms
 
 ## Sitemap
 3 categories: ingé, code, design. 
