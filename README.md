@@ -7,6 +7,8 @@ Main website for testing and production on [ntacv](https://ntacv.github.io)
 
 ## Figma
 
+- Compare storyboard with op
+
 ## Versions
 
 Using tags for version reference: 
