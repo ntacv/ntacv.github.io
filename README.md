@@ -56,6 +56,8 @@ Search: Flask, Dash py
 ## inspi
 [Hassan Bolajraf](https://hbolajraf.net/)
 
+[Richard Hanrick](https://codewithsadee.github.io/vcard-personal-portfolio)
+
 [CriticalByDesign](https://criticalbydesign.ch/)
 
 [Sarah Garcin](https://sarahgarcin.com/) - [webGuideFrugal](https://site.sarahgarcin.com/web-frugal/)
