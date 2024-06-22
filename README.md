@@ -60,4 +60,6 @@ Search: Flask, Dash py
 
 [CriticalByDesign](https://criticalbydesign.ch/)
 
+[DesignSpells](https://designspells.com)
+
 [Sarah Garcin](https://sarahgarcin.com/) - [webGuideFrugal](https://site.sarahgarcin.com/web-frugal/)
