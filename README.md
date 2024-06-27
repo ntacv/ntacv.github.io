@@ -12,7 +12,7 @@ Main website for testing and production on [ntacv](https://ntacv.github.io)
 - Variables: fonts, colors, gradients, sizes, themes
 - Components: texts, buttons, cards, headers, navbars, sections
 - UX: sitemap, wireframe, persona
-- Design: pages layout
+- Design: page layouts, illustrations
 - Compare storyboard with op
 
 ## Versions
