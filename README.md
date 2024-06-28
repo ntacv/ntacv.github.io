@@ -60,6 +60,8 @@ Search: Flask, Dash py
 3. projects, archives (websites, games)
 
 ## inspi
+[Angular scroll animation (28/06/24)](https://angular.dev/)
+
 [Hassan Bolajraf](https://hbolajraf.net/)
 
 [Richard Hanrick](https://codewithsadee.github.io/vcard-personal-portfolio)
