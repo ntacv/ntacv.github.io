@@ -6,6 +6,8 @@ Main website for testing and production on [ntacv](https://ntacv.github.io)
 
 
 ## Figma
+
+FigmaAI is out
 ### Inspi
 - [Template Xfolio](https://www.figma.com/community/file/1191026033275812161/xfolio-portfolio-website-ui-kit)
 
