@@ -52,12 +52,12 @@ having a subdomain in full html
 10. [ ] Custom socials list (large left icon, right {name, desc: how I use it})
 Projet Sara
 next js and tailwind UI. PayloadCms
-Search: Flask, Dash py
+Search: Flask, Dash py, Angular, SwiftEmbd
 
 ## Sitemap
 3 categories: ingé, code, design. 
 1. profil (about me, cv, contact)
-    simple first screen (hero), quantum second hieghtscreen, coding lines
+    simple first screen (hero), quantum second heightscreen, coding lines
 2. content, productions (photos, vlogs, logos, chartes, articles)
 3. projects, archives (websites, games)
 
