@@ -50,8 +50,11 @@ having a subdomain in full html
 8. [ ] cv link and auto fill
 9. [ ] Playbook portfolio mis en avant
 10. [ ] Custom socials list (large left icon, right {name, desc: how I use it})
+
 Projet Sara
 next js and tailwind UI. PayloadCms
+- [Grapho78](https://grapho78-website.vercel.app/)
+
 Search: Flask, Dash py, Angular, SwiftEmbd
 
 ## Sitemap
