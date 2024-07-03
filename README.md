@@ -13,6 +13,7 @@ FigmaAI is out
 
 - Variables: fonts, colors, gradients, sizes, themes
 - Components: texts, buttons, cards, headers, navbars, sections
+- Variants: for content completion
 - UX: sitemap, wireframe, persona
 - Design: page layouts, illustrations
 - Compare storyboard with op
