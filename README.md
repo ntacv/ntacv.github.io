@@ -37,12 +37,13 @@ Added Photography section with mosaic gallery.
 ## Deployment
 
 check vercel, cloudflare
+check github workflow op
 having a subdomain in full html
 
 ## TODO 
 
 1. [ ] proper figma (with components)
-2. [ ] create components 
+2. [ ] create components (flexbox for autolayout)
 3. [ ] écouter sara !!
 4. [ ] code components
 5. [ ] code lang and project
