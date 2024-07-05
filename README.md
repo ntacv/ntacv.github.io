@@ -52,6 +52,7 @@ having a subdomain in full html
 8. [ ] cv link and auto fill
 9. [ ] Playbook portfolio mis en avant
 10. [ ] Custom socials list (large left icon, right {name, desc: how I use it})
+11. [ ] SEO (meta, sitemap.xml, robots.txt) opti SSR SSG (nextjs)
 
 Projet Sara
 next js and tailwind UI. PayloadCms
