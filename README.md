@@ -60,6 +60,10 @@ next js and tailwind UI. PayloadCms
 
 Search: Flask, Dash py, Angular, SwiftEmbd
 
+## Improvements
+- dark and color theme
+- change color theme on refresh
+
 ## Sitemap
 3 categories: ingé, code, design. 
 1. profil (about me, cv, contact)
