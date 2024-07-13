@@ -64,6 +64,8 @@ Search: Flask, Dash py, Angular, SwiftEmbd
 - dark and color theme
 - change color theme on refresh
 - pwa with offline feat
+- translation to fr,es, cn
+- redesign for cn and cn vertical
 
 ## Sitemap
 3 categories: ingé, code, design. 
