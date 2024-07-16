@@ -56,7 +56,7 @@ having a subdomain in full html
 
 Projet Sara
 next js and tailwind UI. PayloadCms
-- [Grapho78](https://grapho78-website.vercel.app/)
+- [Grapho78](https://grapho78-website.vercel.app/) (mouse hover mask)
 
 Search: Flask, Dash py, Angular, SwiftEmbd
 
