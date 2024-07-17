@@ -42,6 +42,7 @@ having a subdomain in full html
 
 ## TODO 
 
+language cv comp assembler (avr dude)
 1. [ ] proper figma (with components)
 2. [ ] create components (flexbox for autolayout)
 3. [ ] écouter sara !!
