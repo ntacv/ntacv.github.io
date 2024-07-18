@@ -50,7 +50,7 @@ language cv comp assembler (avr dude)
 5. [ ] code lang and project
 6. [ ] vlogs to yt
 7. [ ] archives (site 2018 2022, perso archi)
-8. [ ] cv link and auto fill
+8. [ ] cv link and auto fill (update cms?)
 9. [ ] Playbook portfolio mis en avant
 10. [ ] Custom socials list (large left icon, right {name, desc: how I use it})
 11. [ ] SEO (meta, sitemap.xml, robots.txt) opti SSR SSG (nextjs)
