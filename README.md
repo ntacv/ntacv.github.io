@@ -38,7 +38,10 @@ Added Photography section with mosaic gallery.
 
 check vercel, cloudflare
 check github workflow op
-having a subdomain in full html
+ - CI for unit tests (tap test, vitest)
+having a subdomain in full HTML
+
+Generate with plop and moustache js
 
 ## TODO 
 
