@@ -41,7 +41,8 @@ check github workflow op
  - CI for unit tests (tap test, vitest)
 having a subdomain in full HTML
 
-Generate with plop and moustache js
+Generate files with plop and moustache js
+maybe generate project pages
 
 ## TODO 
 
