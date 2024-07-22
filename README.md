@@ -41,8 +41,6 @@ check github workflow op
  - CI for unit tests (tap test, vitest)
 having a subdomain in full HTML
 
-Generate files with plop and moustache js
-maybe generate project pages
 
 ## TODO 
 
@@ -57,7 +55,8 @@ language cv comp assembler (avr dude)
 8. [ ] cv link and auto fill (update cms?)
 9. [ ] Playbook portfolio mis en avant
 10. [ ] Custom socials list (large left icon, right {name, desc: how I use it})
-11. [ ] SEO (meta, sitemap.xml, robots.txt) opti SSR SSG (nextjs)
+11. [ ] add language support (multilang, fr,en)
+12. [ ] SEO (meta, sitemap.xml, robots.txt) opti SSR SSG (nextjs)
 
 Projet Sara
 next js and tailwind UI. PayloadCms
@@ -71,6 +70,9 @@ Search: Flask, Dash py, Angular, SwiftEmbd
 - pwa with offline feat
 - translation to fr,es, cn
 - redesign for cn and cn vertical
+
+Generate files with plop and moustache js
+maybe generate project pages
 
 ## Sitemap
 3 categories: ingé, code, design. 
