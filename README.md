@@ -80,7 +80,7 @@ maybe generate project pages
     simple first screen (hero), quantum second heightscreen, coding lines
 2. content, productions (photos, vlogs, logos, chartes, articles)
 3. projects, archives (websites, games)
-   embed portfolio ? or portfolio api ? same for insta vlogs?
+   embed Playbook ? or api ? same for insta vlogs embed?
 
 ## inspi
 [Angular scroll animation (28/06/24)](https://angular.dev/)
