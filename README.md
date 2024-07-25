@@ -79,7 +79,7 @@ maybe generate project pages
 1. profil (about me, cv, contact)
     simple first screen (hero), quantum second heightscreen, coding lines
 2. content, productions (photos, vlogs, logos, chartes, articles)
-3. projects, archives (websites, games)
+3. projects, archives (websites, games), articles esilv
    embed Playbook ? or api ? same for insta vlogs embed?
 
 ## inspi
