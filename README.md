@@ -37,7 +37,7 @@ Added Photography section with mosaic gallery.
 ## Deployment
 
 check vercel, cloudflare
-check github workflow op
+check github workflow op (yml for lint build test deploy)
  - CI for unit tests (tap test, vitest)
 having a subdomain in full HTML
 
