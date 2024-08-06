@@ -58,6 +58,7 @@ language cv comp assembler (avr dude)
 10. [ ] Custom socials list (large left icon, right {name, desc: how I use it})
 11. [ ] add language support (multilang, fr,en)
 12. [ ] SEO (meta, sitemap.xml, robots.txt) opti SSR SSG (nextjs)
+articles esilv & medium
 
 Projet Sara
 next js and tailwind UI. PayloadCms
