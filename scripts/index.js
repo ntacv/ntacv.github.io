@@ -77,6 +77,7 @@ function Card_item(props) {
     </a>
   );
 }
+
 function Card_container(props) {
   return (
     <div
@@ -84,6 +85,56 @@ function Card_container(props) {
       style={{
         width: "100%",
         borderRadius: "10px",
+      }}
+    >
+      {props.children}
+    </div>
+  );
+}
+function List_item(props) {
+  // className="theme-{props.theme}"
+
+  return (
+    <a href={props.href} target="_blank">
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          width: "100%",
+          color: "black",
+          background: "lightgrey",
+          overflow: "hidden",
+        }}
+      >
+        <img
+          src={
+            props.src
+              ? "assets/images/" + props.src
+              : "assets/images/formula1.webp"
+          }
+          style={{
+            width: "30%",
+            objectFit: "cover",
+            aspectRatio: "2",
+          }}
+        />
+
+        <div style={{ margin: "10px 20px", width: "70%" }}>
+          {props.children ? props.children : "Card"}
+          <div style={{ fontSize: "10px" }}>{props.desc ? props.desc : ""}</div>
+        </div>
+      </div>
+    </a>
+  );
+}
+function List_container(props) {
+  return (
+    <div
+      className=""
+      style={{
+        width: "100%",
+        borderRadius: "30px",
+        overflow: "hidden",
       }}
     >
       {props.children}
@@ -259,8 +310,22 @@ function Lang_list() {
       <br />
       <br />
       <br />
+      <List_container>
+        <List_item src="coding.jpg" desc="for 13 years">
+          Coding
+        </List_item>
+        <List_item
+          src="prototyping.jpeg"
+          desc="Prototyping of some of the best packaging i could find and stand maquettes"
+        >
+          Prototyping and maquettes
+        </List_item>
+      </List_container>
+      <br />
+      <br />
       <Card_container>
         <Card_item src="coding.jpg">Coding</Card_item>
+        <Card_item src="prototyping.jpeg">Prototyping</Card_item>
         <Card_item
           src="formula1.webp"
           href="https://medium.com/@sergioalbertoromero/why-formula-1-is-the-best-sport-to-watch-6a4035c80672"
