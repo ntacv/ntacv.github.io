@@ -87,6 +87,8 @@ maybe generate project pages
 ## inspi
 [Angular scroll animation (28/06/24)](https://angular.dev/)
 
+[Figma Variable font animation](https://www.figma.com/typography/variable-fonts)
+
 [Hassan Bolajraf](https://hbolajraf.net/)
 
 [Richard Hanrick](https://codewithsadee.github.io/vcard-personal-portfolio)
