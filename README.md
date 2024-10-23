@@ -1,6 +1,7 @@
 # ntacv.github.io
 Main website for testing and production on [ntacv](https://ntacv.github.io)
 
+idea: each section of different theme (code, photo, vlog, links) has a special design, from modern to geek to funny
 
 # Version v0.2.0
 
