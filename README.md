@@ -88,6 +88,8 @@ maybe generate project pages
 ## inspi
 [Angular scroll animation (28/06/24)](https://angular.dev/)
 
+[Rython malaysian webdev streamer](https://rython.dev/socials/)
+
 [Figma Variable font animation](https://www.figma.com/typography/variable-fonts)
 
 [Hassan Bolajraf](https://hbolajraf.net/)
