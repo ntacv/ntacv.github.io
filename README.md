@@ -61,6 +61,8 @@ language cv comp assembler (avr dude)
 12. [ ] SEO (meta, sitemap.xml, robots.txt) opti SSR SSG (nextjs)
 articles esilv & medium
 
+link to external or new tabs: add arrow up icon ↗️
+
 Projet Sara
 next js and tailwind UI. PayloadCms
 - [Grapho78](https://grapho78-website.vercel.app/) (mouse hover mask)
