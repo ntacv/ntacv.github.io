@@ -94,6 +94,8 @@ maybe generate project pages
 
 [Figma Variable font animation](https://www.figma.com/typography/variable-fonts)
 
+[Amruth Pillai](https://www.amruthpillai.com/)
+
 [Hassan Bolajraf](https://hbolajraf.net/)
 
 [Richard Hanrick](https://codewithsadee.github.io/vcard-personal-portfolio)
