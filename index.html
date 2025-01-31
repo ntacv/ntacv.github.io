@@ -115,7 +115,7 @@
   <body>
     <div class="zoom_animation">
       <img
-        class="atom_background"
+        class="atom_background formula_ring"
         src="assets/Asset 2.png"
         alt="Foreground animation about quantum"
       />
@@ -144,9 +144,36 @@
 
     <header>
       <!-- Header content goes here -->
+      <div class="content_full">
+        <div class="fixed_down" style="text-align: center">
+          <h1>Nathan Choukroun</h1>
+          <p>
+            My github:
+            <a href="https://github.com/ntacv" target="_blank">ntacv</a>
+          </p>
+          <div>
+            Enable animation
+            <label class="switch">
+              <!-- position absolute bottom/bottom right -->
+              <input
+                type="checkbox"
+                onchange="enable_animation()"
+                class="animation_toggle"
+                checked
+              />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <noscript
+            >Please activate Javascript in your browser settings for a better
+            experience.
+          </noscript>
+        </div>
+      </div>
+      <div class="content_full"></div>
     </header>
 
-    <nav>
+    <nav hidden>
       <!-- Navigation menu goes here -->
       <ul>
         <li><a></a></li>
@@ -161,21 +188,6 @@
       <!-- Main content of the website goes here -->
       <section>
         <!-- Section 1 content -->
-
-        <div class="content_full">
-          <div class="fixed_down" style="text-align: center">
-            <h1>Nathan Choukroun</h1>
-            <p>
-              My github:
-              <a href="https://github.com/ntacv" target="_blank">ntacv</a>
-            </p>
-            <noscript
-              >Please activate Javascript in your browser settings for a better
-              experience.
-            </noscript>
-          </div>
-        </div>
-        <div class="content_full"></div>
       </section>
 
       <section>
