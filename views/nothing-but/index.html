@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Encoding and scaling parameters -->
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initiale-scale=1.0, user-scalable=yes"
+    />
+    <!-- Page description -->
+    <title>Nothing but...</title>
+    <meta
+      name="description"
+      content="My github profil with nice zooming animation"
+    />
+    <!-- Name of web application (only should be used if the website is used as an app) -->
+    <meta name="application-name" content="Application Name" />
+    <!-- Browser styling -->
+    <meta name="theme-color" content="#800080" />
+    <!-- Icon files -->
+    <link rel="icon" type="image/jpg" href="" />
+    <link rel="shortcut icon" type="image/x-icon" href="" />
+    <link rel="apple-touch-icon" href="" />
+    <link rel="mask-icon" href="" color="#000000" />
+    <!-- Styling sheets -->
+    <link rel="stylesheet" href="styles/style.css" />
+    <link
+      rel="stylesheet"
+      href=""
+      media="all and (max-width:750px) and (min-width:1px) and (orientation:portrait)"
+    />
+    <!-- Imported plug-ins -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,500"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap" rel="stylesheet">
+    <!-- Imported scripts -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Scripting sheets -->
+    <script src="scripts/index.js" type="text/jsx"></script>
+    <!-- Control the behavior of search engine crawling and indexing -->
+    <meta name="robots" content="index,follow" />
+    <!-- All Search Engines -->
+    <meta name="googlebot" content="index,follow" />
+    <!-- Google Specific -->
+    <!-- Meta tags for preview -->
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:video" content="" />
+    <meta property="og:video:type" content="video/mp4" />
+    <meta property="og:video:width" content="" />
+    <meta property="og:video:height" content="" />
+
+    <!-- Import social media icons -->
+    <!-- More on: https://fontawesome.com/v4/icon/ -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- CSS Reset -->
+    <style>
+      /* 1. Use a more-intuitive box-sizing model. */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      /* 2. Remove default margin */
+      * {
+        margin: 0;
+      }
+      /* Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering */
+      body {
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+      /*  5. Improve media defaults */
+      img,
+      picture,
+      video,
+      canvas,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+      /*  6. Remove built-in form typography styles */
+      input,
+      button,
+      textarea,
+      select {
+        font: inherit;
+      }
+      /*  7. Avoid text overflows */
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        overflow-wrap: break-word;
+      }
+      /*  8. Create a root stacking context */
+      #root,
+      #__next {
+        isolation: isolate;
+      }
+
+      .lexend {
+        font-family: "Lexend", serif;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+      }
+
+      body{
+        font-family: 'Lexend', sans-serif;
+        font-weight: 600;
+      }
+      div.center{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+      h1{
+        font-size: 50px;
+      }
+      .main_title{
+        color: white;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        gap: 10px;
+        background: rgba(20,20,20,0.5);
+        border-radius: 30px;
+        padding: 30px;
+      }
+      h1.left{
+        text-align: right;
+      }
+      h1.right{
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+        // random rgb color generator in an accessible range
+        function random_color_rgb(){
+            const r = Math.floor(Math.random() * 200)
+            const g = Math.floor(Math.random() * 200)
+            const b = Math.floor(Math.random() * 200)
+            return `rgb(${r},${g},${b})`
+        }
+        // update text color with random color
+        function update_text_color(element, color=random_color_rgb()){
+            document.querySelector(element).style.color = color
+        }
+        // enable/disable animation
+        function enable_animation(){
+            const animation_toggle = document.querySelector('.animation_toggle')
+            const animation_elements = document.querySelectorAll('.atom_background')
+            if(animation_toggle.checked){
+                        
+                // update text color every 2 seconds
+                //setInterval(update_text_color, 2000, 'h1.left')
+                //setInterval(update_text_color, 2000, 'h1.right')
+                update_text_color('h1.left')
+                update_text_color('h1.right')
+            }else{
+                update_text_color('h1.left', 'white')
+                update_text_color('h1.right', 'black')
+            }
+        }
+        setInterval(enable_animation, 2000)
+
+    </script>
+    <header>
+      <!-- Header content goes here -->
+      <div class="content_full">
+        <div class="fixed_down" style="text-align: center">
+
+          <div class="main_title">
+            <h1 class="left">
+                take nothing but</br>
+                leave nothing but</br>
+                kill nothing but</h1>
+            <h1 class="right">pictures</br>
+            footprints</br>
+            time</h1>
+          </div>
+          <img src="https://fastly.picsum.photos/id/11/2500/1667.jpg?blur=2&hmac=xxjFJtAPgshYkysU_aqx2sZir-kIOjNR9vx0te7GycQ" alt="forest image"/>
+          <p>
+            My github:
+            <a href="https://github.com/ntacv" target="_blank">ntacv</a>
+          </p>
+          <div>
+            Enable animation
+            <label class="switch">
+              <!-- position absolute bottom/bottom right -->
+              <input
+                type="checkbox"
+                onchange="enable_animation()"
+                class="animation_toggle"
+                checked
+              />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <noscript
+            >Please activate Javascript in your browser settings for a better
+            experience.
+          </noscript>
+        </div>
+      </div>
+      <div class="content_full"></div>
+    </header>
+
+    <nav hidden>
+      <!-- Navigation menu goes here -->
+      <ul>
+        <li><a></a></li>
+        <li><a></a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <aside>
+        <!-- Sidebar content goes here -->
+      </aside>
+      <!-- Main content of the website goes here -->
+      <section>
+        <!-- Section 1 content -->
+      </section>
+
+      <section>
+        <!-- Section 2 content -->
+        <div hidden>
+          <p>Play with the animation:</p>
+          <label for="start_from_0" onclick="check()">
+            <input
+              type="checkbox"
+              id="start_from_0"
+              name="start_from_0"
+              value="Start from 0"
+            />
+            Start from infinity</label
+          >
+          <div class="update_checked">hey</div>
+        </div>
+        <div class="center">
+        <!-- Add font awesome icons -->
+        <a target="_blank" href="https://e-nta.fr" class="fa fa-globe"></a>
+        <a
+          target="_blank"
+          href="https://www.playbook.com/s/ntaportfolio/nathan-s-playbook"
+          class="fa fa-book"
+        ></a>
+        <a
+          target="_blank"
+          href="https://ntacknpro.notion.site/"
+          class="fa fa-newspaper-o"
+        ></a>
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/nathanchoukroun/"
+          class="fa fa-linkedin"
+        ></a>
+        <a
+          target="_blank"
+          href="https://www.instagram.com/ntacv/"
+          class="fa fa-instagram"
+        ></a>
+        <a
+          target="_blank"
+          href="https://www.youtube.com/@enta1973"
+          class="fa fa-youtube-play"
+        ></a>
+        <a
+          target="_blank"
+          href="https://github.com/ntacv"
+          class="fa fa-github"
+        ></a>
+        <a
+          target="_blank"
+          href="https://codepen.io/Natroun"
+          class="fa fa-codepen"
+        ></a>
+        <a
+          target="_blank"
+          href="https://www.facebook.com/ntackn"
+          class="fa fa-facebook"
+        ></a>
+        <!-- 
+          <a target="_blank" href="" class="fa fa-twitter"></a>
+        <a target="_blank" href="" class="fa fa-google"></a>
+        <a target="_blank" href="" class="fa fa-pinterest"></a>
+        <a target="_blank" href="" class="fa fa-dribbble"></a>
+        <a target="_blank" href="" class="fa fa-reddit"></a> 
+      -->
+</div>
+        <div class="content_full"></div>
+      </section>
+<br><br>
+      <!-- More sections if needed -->
+    </main>
+
+    <footer>
+      <!-- Footer content goes here -->
+    </footer>
+    <script src="scripts/animation.js" type="text/javascript"></script>
+  </body>
+</html>
