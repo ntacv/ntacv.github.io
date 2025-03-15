@@ -1,6 +1,7 @@
 
 ## Formation React Native
 - react-navigation/native
-- varibles.ts
+- varibles.ts (or style variable "font:;")
 - effector stores
 - axios
+- 
