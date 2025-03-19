@@ -5,3 +5,4 @@
 - effector stores
 - axios get with generated namespaces and requests
 - navigation drawer
+- flex native
