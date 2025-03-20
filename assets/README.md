@@ -6,3 +6,4 @@
 - axios get with generated namespaces and requests
 - navigation drawer
 - flex native
+- react-native-svg
