@@ -7,3 +7,4 @@
 - navigation drawer
 - flex native
 - react-native-svg
+- gitlab merge requests
