@@ -9,3 +9,4 @@
 - react-native-svg
 - gitlab merge requests
 - prettier config
+- horizontal scrollview
