@@ -12,3 +12,4 @@
 - horizontal scrollview
 - list of object to object list to store
 - login with bearer 
+- update api on useEffect
