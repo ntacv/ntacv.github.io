@@ -14,3 +14,4 @@
 - login with bearer 
 - update api on useEffect
 - const regex inside of react component
+- formik yup 
