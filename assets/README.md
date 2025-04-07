@@ -16,4 +16,4 @@
 - const regex inside of react component
 - formik yup
 - keyboardAvoidingView native
-- git amend
+- git amend & prune
