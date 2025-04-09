@@ -17,3 +17,4 @@
 - formik yup
 - keyboardAvoidingView native
 - git amend & prune
+- prisma db
