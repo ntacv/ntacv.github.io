@@ -18,3 +18,4 @@
 - keyboardAvoidingView native
 - git amend & prune
 - prisma db
+- array manipultation with flat map filter reduce
