@@ -2,7 +2,7 @@
 ## Formation React Native
 - react-navigation/native
 - varibles.ts (or style variable "font:;")
-- effector stores
+- effector stores (useStoreMap should return an object instead of undefined value or it will not sync with the listener)
 - axios get with generated namespaces and requests
 - navigation drawer
 - flex native
