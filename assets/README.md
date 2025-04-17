@@ -19,3 +19,4 @@
 - git amend & prune
 - prisma db
 - array manipultation with flat map filter reduce
+- react context principles 
