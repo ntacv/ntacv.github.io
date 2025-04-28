@@ -20,5 +20,5 @@
 - prisma db
 - array manipultation with flat map filter reduce
 - react context principles 
-- cursor tests, vscode agent
+- cursor tests, vscode agent, gemini labwork
 - 
