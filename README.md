@@ -2,6 +2,8 @@
 Main website for testing and production on [ntacv](https://ntacv.github.io)
 
 idea: each section of different theme (code, photo, vlog, links) has a special design, from modern to geek to funny
+sections follows: "i a little bit of..." developer, designer, photographer...
+each word inline, works as a menu that display the page below the text. 
 
 # Version v0.2.0
 
@@ -23,12 +25,13 @@ FigmaAI is out
 ## Versions
 
 Using tags for version reference: 
-vX.Y.Z notation 
+vX.Y.Z(N) notation 
 with the following:
 
 - X will be increased on major changes (on rebranding, or major changes in the website structure, etc.)
 - Y on minor changes (new features, new pages, etc.)
 - Z for hotfixes (bug fixes, color changes, etc.)
+- N number of builds since v0
 
 ### v0.1.0
 Start counting versions: basic site, wrong architecture, few content...
