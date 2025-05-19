@@ -49,7 +49,11 @@ having a subdomain in full HTML
 
 ## TODO 
 
-language cv comp assembler (avr dude)
+- [ ] npm to yarn
+- [ ] html to ts
+- [ ] ghpages to cloudflare
+
+language cv component assembler (avr dude)
 1. [ ] proper figma (with components)
 2. [ ] create components (flexbox for autolayout)
 3. [ ] écouter sara !!
