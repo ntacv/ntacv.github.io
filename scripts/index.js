@@ -202,6 +202,49 @@ function Lang_list() {
     <>
       <br />
       <br />
+      <Code_text>To contact me: </Code_text>
+      <br />
+      <br />
+        <a target="_blank" href="https://ntacv.com" className="fa fa-globe"></a>
+        <a
+          target="_blank"
+          href="https://www.playbook.com/s/ntaportfolio/nathan-s-playbook"
+          className="fa fa-book"
+        ></a>
+        <a
+          target="_blank"
+          href="https://ntacknpro.notion.site/"
+          className="fa fa-newspaper-o"
+        ></a>
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/nathanchoukroun/"
+          className="fa fa-linkedin"
+        ></a>
+        <a
+          target="_blank"
+          href="https://github.com/ntacv"
+          className="fa fa-github"
+        ></a>
+        <a
+          target="_blank"
+          href="https://www.instagram.com/ntacv/"
+          className="fa fa-instagram"
+        ></a>
+        <a
+          target="_blank"
+          href="https://www.youtube.com/@enta1973"
+          className="fa fa-youtube-play"
+        ></a>
+        <a
+          target="_blank"
+          href="https://codepen.io/Natroun"
+          className="fa fa-codepen"
+        ></a>
+        
+      <br />
+      <br />
+      {/* <Socials></Socials> */}
       <Code_text>Languages I learned: </Code_text>
       <br />
       <br />
@@ -278,10 +321,7 @@ function Lang_list() {
       <Mosaic />
       <br />
       <br />
-      <Code_text>To contact me: </Code_text>
-      <br />
-      <br />
-      {/* <Socials></Socials> */}
+      
     </>
   );
 }
