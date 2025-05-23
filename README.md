@@ -52,6 +52,7 @@ having a subdomain in full HTML
 - [ ] npm to yarn
 - [ ] html to ts
 - [ ] ghpages to cloudflare
+- [ ] json for wording and update all 
 
 language cv component assembler (avr dude)
 1. [ ] proper figma (with components)
