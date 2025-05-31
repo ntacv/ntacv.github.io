@@ -119,3 +119,5 @@ maybe generate project pages
 [StarBeamRainbow Portfolio](https://starbeamrainbowlabs.com/)
 
 [Antinote Prensentation](https://antinote.io/)
+
+[open source libraries for ai](https://dev.to/dev_kiran/top-5-open-source-tools-you-should-be-using-52g0)
