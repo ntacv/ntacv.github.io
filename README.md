@@ -121,3 +121,8 @@ maybe generate project pages
 [Antinote Prensentation](https://antinote.io/)
 
 [open source libraries for ai](https://dev.to/dev_kiran/top-5-open-source-tools-you-should-be-using-52g0)
+
+
+[
+"Autonomous Cars Modeling Project",
+]
