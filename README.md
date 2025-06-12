@@ -2,6 +2,8 @@
 Main website for testing and production on [ntacv](https://ntacv.github.io)
 
 idea: each section of different theme (code, photo, vlog, links) has a special design, from modern to geek to funny
+sections follows: "i a little bit of..." developer, designer, photographer...
+each word inline, works as a menu that display the page below the text. 
 
 # Version v0.2.0
 
@@ -23,12 +25,13 @@ FigmaAI is out
 ## Versions
 
 Using tags for version reference: 
-vX.Y.Z notation 
+vX.Y.Z(N) notation 
 with the following:
 
 - X will be increased on major changes (on rebranding, or major changes in the website structure, etc.)
 - Y on minor changes (new features, new pages, etc.)
 - Z for hotfixes (bug fixes, color changes, etc.)
+- N number of builds since v0
 
 ### v0.1.0
 Start counting versions: basic site, wrong architecture, few content...
@@ -46,7 +49,13 @@ having a subdomain in full HTML
 
 ## TODO 
 
-language cv comp assembler (avr dude)
+- [ ] npm to yarn
+- [ ] html to ts
+- [ ] connect to strapi and check postgre on render
+- [ ] ghpages to cloudflare/vercel/render
+- [ ] json for wording and update all 
+
+language cv component assembler (avr dude)
 1. [ ] proper figma (with components)
 2. [ ] create components (flexbox for autolayout)
 3. [ ] écouter sara !!
@@ -60,6 +69,8 @@ language cv comp assembler (avr dude)
 11. [ ] add language support (multilang, fr,en)
 12. [ ] SEO (meta, sitemap.xml, robots.txt) opti SSR SSG (nextjs)
 articles esilv & medium
+
+mini game: at the top:find this small image somewhere in the page and precisely clisk on it. at the place: send notif to me,good job youve been hacked and tracked because you follow internet advices. thank you for playing my game from iP address
 
 link to external or new tabs: add arrow up icon ↗️
 
@@ -107,3 +118,12 @@ maybe generate project pages
 [Sarah Garcin](https://sarahgarcin.com/) - [webGuideFrugal](https://site.sarahgarcin.com/web-frugal/)
 
 [StarBeamRainbow Portfolio](https://starbeamrainbowlabs.com/)
+
+[Antinote Prensentation](https://antinote.io/)
+
+[open source libraries for ai](https://dev.to/dev_kiran/top-5-open-source-tools-you-should-be-using-52g0)
+
+
+[
+"Autonomous Cars Modeling Project",
+]
