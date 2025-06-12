@@ -49,7 +49,13 @@ having a subdomain in full HTML
 
 ## TODO 
 
-language cv comp assembler (avr dude)
+- [ ] npm to yarn
+- [ ] html to ts
+- [ ] connect to strapi and check postgre on render
+- [ ] ghpages to cloudflare/vercel/render
+- [ ] json for wording and update all 
+
+language cv component assembler (avr dude)
 1. [ ] proper figma (with components)
 2. [ ] create components (flexbox for autolayout)
 3. [ ] écouter sara !!
@@ -114,3 +120,10 @@ maybe generate project pages
 [StarBeamRainbow Portfolio](https://starbeamrainbowlabs.com/)
 
 [Antinote Prensentation](https://antinote.io/)
+
+[open source libraries for ai](https://dev.to/dev_kiran/top-5-open-source-tools-you-should-be-using-52g0)
+
+
+[
+"Autonomous Cars Modeling Project",
+]
