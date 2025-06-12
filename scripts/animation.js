@@ -1,5 +1,8 @@
 var animated_object = document.querySelector(".zoom_animation");
-animated_object.style.display = "block";
+animated_object.style.display = "none";
+var animation_toggle = document.querySelector(".animation_toggle");
+animation_toggle.checked = false;
+var animation_enabled = animation_toggle.checked;
 
 window.addEventListener("scroll", function () {
   var to_top = window.scrollY; //pageYOffset;
@@ -56,7 +59,9 @@ function animate_ratio(to_top, to_scale = 1, to_x = 0, to_y = 0) {
 }
 
 function animate_fore(to_top) {
-  var object = document.querySelector(".zoom_animation");
+  var atom_backgrounds = document.querySelectorAll(".atom_background");
+  var zoom_animation = document.querySelector(".zoom_animation");
+  var formula_ring = document.querySelector(".formula_ring");
   var formula_1 = document.querySelector(".formula_1");
   var formula_2 = document.querySelector(".formula_2");
   var formula_3 = document.querySelector(".formula_3");
@@ -64,14 +69,14 @@ function animate_fore(to_top) {
   var formula_5 = document.querySelector(".formula_5");
 
   if (to_top > 1000) {
-    object.style.display = "none";
+    formula_ring.style.display = "none";
     formula_1.style.display = "none";
     formula_2.style.display = "none";
     formula_3.style.display = "none";
     formula_4.style.display = "none";
     formula_5.style.display = "none";
   } else {
-    object.style.display = "block";
+    formula_ring.style.display = "block";
     formula_1.style.display = "block";
     formula_2.style.display = "block";
     formula_3.style.display = "block";
@@ -79,7 +84,17 @@ function animate_fore(to_top) {
     formula_5.style.display = "block";
   }
 
-  object.style.transform = animate_ratio(to_top, 1, 0, 0);
+  if (to_top > 1000) {
+    for (index = 0; index < atom_backgrounds.length; index++) {
+      atom_backgrounds[index].style.display = "none";
+    }
+  } else {
+    for (index = 0; index < atom_backgrounds.length; index++) {
+      atom_backgrounds[index].style.display = "block";
+    }
+  }
+
+  formula_ring.style.transform = animate_ratio(to_top, 1, 0, 0);
   formula_1.style.transform = animate_ratio(to_top, 1, -5, -1);
   formula_2.style.transform = animate_ratio(to_top, 1, 4, -1);
   formula_3.style.transform = animate_ratio(to_top, 1, 5, 1);
@@ -94,4 +109,14 @@ function animate_mobile(to_top) {
   left += ratio * to_top;
   object.style.left = left + "px";
   left_object.style.right = left + "px";
+}
+function enable_animation() {
+  animation_enabled = animation_toggle.checked;
+  if (animation_enabled) {
+    animated_object.style.display = "block";
+  } else {
+    animated_object.style.display = "none";
+  }
+
+  console.log(animation_enabled);
 }
