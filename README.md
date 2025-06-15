@@ -124,6 +124,7 @@ maybe generate project pages
 
 [open source libraries for ai](https://dev.to/dev_kiran/top-5-open-source-tools-you-should-be-using-52g0)
 
+[Dia Browser Footer animation (try with images)](https://www.diabrowser.com/)
 
 [
 "Autonomous Cars Modeling Project",
