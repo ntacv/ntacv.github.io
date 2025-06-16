@@ -39,6 +39,8 @@ Start counting versions: basic site, wrong architecture, few content...
 ### v0.2.0
 Added Photography section with mosaic gallery.
 
+v1 will be a finished version of the portfolio with cms and auto deploy
+
 ## Deployment
 
 check vercel, cloudflare (remove cloudflare)
