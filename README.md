@@ -102,6 +102,10 @@ maybe generate project pages
 3. projects, archives (websites, games), articles esilv
    embed Playbook ? or api ? same for insta vlogs embed?
 
+## Other
+
+- email coding (fariha's newsletter)
+
 ## inspi
 [Angular scroll animation (28/06/24)](https://angular.dev/)
 
