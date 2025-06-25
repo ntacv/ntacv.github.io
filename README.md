@@ -133,6 +133,8 @@ maybe generate project pages
 
 [Dia Browser Footer animation (try with images)](https://www.diabrowser.com/)
 
+[Aayush developer](https://apps.aayush.art/)
+
 [
 "Autonomous Cars Modeling Project",
 ]
