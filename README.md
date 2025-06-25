@@ -5,6 +5,8 @@ idea: each section of different theme (code, photo, vlog, links) has a special d
 sections follows: "i a little bit of..." developer, designer, photographer...
 each word inline, works as a menu that display the page below the text. 
 
+"From vanilla to exotic"
+
 # Version v0.2.0
 
 
