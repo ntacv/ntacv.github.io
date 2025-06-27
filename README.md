@@ -1,4 +1,4 @@
-# ntacv.github.io
+de# ntacv.github.io
 Main website for testing and production on [ntacv](https://ntacv.github.io)
 
 idea: each section of different theme (code, photo, vlog, links) has a special design, from modern to geek to funny
@@ -60,6 +60,7 @@ render free version is not reliable.
 - [ ] connect to strapi and check postgre on render
 - [ ] ghpages to cloudflare/vercel/render
 - [ ] json for wording and update all 
+- [ ] pipeline gh (version numbering, deploy, prettier eslint, tests)
 
 language cv component assembler (avr dude)
 1. [ ] proper figma (with components)
