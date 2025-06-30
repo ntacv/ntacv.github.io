@@ -107,7 +107,7 @@ maybe generate project pages
 
 ## Other
 
-- email coding (fariha's newsletter)
+- email coding (fariha's newsletter) (table, head, send, manage backoffice)
 
 ## inspi
 [Angular scroll animation (28/06/24)](https://angular.dev/)
