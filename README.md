@@ -77,7 +77,7 @@ language cv component assembler (avr dude)
 12. [ ] SEO (meta, sitemap.xml, robots.txt) opti SSR SSG (nextjs)
 articles esilv & medium
 
-mini game: at the top:find this small image somewhere in the page and precisely clisk on it. at the place: send notif to me,good job youve been hacked and tracked because you follow internet advices. thank you for playing my game from iP address
+mini game: at the top:find this small image somewhere in the page and precisely clisk on it. at the place: send notif to me,good job youve been hacked and tracked because you follow internet advices. thank you for playing my game from <iP address location> 
 
 link to external or new tabs: add arrow up icon ↗️
 
