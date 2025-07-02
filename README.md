@@ -97,6 +97,11 @@ Search: Flask, Dash py, Angular, SwiftEmbd
 Generate files with plop and moustache js
 maybe generate project pages
 
+## Clean code
+- no mutability (only constant, no variable objects)
+- pur functions
+- KISS 
+
 ## Sitemap
 3 categories: ingé, code, design. 
 1. profil (about me, cv, contact)
