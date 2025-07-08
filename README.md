@@ -62,6 +62,8 @@ render free version is not reliable.
 - [ ] json for wording and update all 
 - [ ] pipeline gh (version numbering, deploy, prettier eslint, tests)
 
+- [ ] finish to fill Playbook and present it as a portfolio (Adobe)
+
 language cv component assembler (avr dude)
 1. [ ] proper figma (with components)
 2. [ ] create components (flexbox for autolayout)
