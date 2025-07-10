@@ -63,6 +63,7 @@ render free version is not reliable.
 - [ ] pipeline gh (version numbering, deploy, prettier eslint, tests)
 
 - [ ] finish to fill Playbook and present it as a portfolio (Adobe)
+- [ ] make a cv update pipeline
 
 language cv component assembler (avr dude)
 1. [ ] proper figma (with components)
