@@ -117,6 +117,10 @@ maybe generate project pages
 
 - email coding (fariha's newsletter) (table, head, send, manage backoffice)
 
+## Links to add
+
+[Autonomous Cars Modeling Project](https://github.com/ntacv/autonomous_gama_modeling)
+
 ## inspi
 [Angular scroll animation (28/06/24)](https://angular.dev/)
 
@@ -150,6 +154,4 @@ maybe generate project pages
 
 [Neomorphism design](https://tablbrowser.com/)
 
-[
-"Autonomous Cars Modeling Project",
-]
+
