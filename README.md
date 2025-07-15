@@ -57,6 +57,7 @@ render free version is not reliable.
 
 - [ ] npm to yarn
 - [ ] html to ts
+- [ ] contact icon hover message to explain the link ex playbook "portfolio design", notion "knowledge sharing", linkedin "professional profil", codepen "dev experiments"
 - [ ] connect to strapi and check postgre on render
 - [ ] ghpages to cloudflare/vercel/render
 - [ ] json for wording and update all 
