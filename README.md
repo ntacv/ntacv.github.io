@@ -155,4 +155,6 @@ maybe generate project pages
 
 [Neomorphism design](https://tablbrowser.com/)
 
+[Opera Neon agentic browser (home animation cursor&scroll) 16/7/25](https://www.operaneon.com/)
+
 
