@@ -104,7 +104,7 @@ maybe generate project pages
 ## Clean code
 - no mutability (only constant, no variable objects)
 - pur functions
-- KISS 
+- KISS (keep it simple), DRY (dont repeat yourself)
 
 ## Sitemap
 3 categories: ingé, code, design. 
