@@ -117,6 +117,7 @@ maybe generate project pages
 ## Other
 
 - email coding (fariha's newsletter) (table, head, send, manage backoffice)
+  ?: fonts, responsivness in the table, too many png
 
 ## Links to add
 
