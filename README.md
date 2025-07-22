@@ -156,6 +156,7 @@ maybe generate project pages
 
 [Neomorphism design](https://tablbrowser.com/)
 
+[Animation library and fun website](https://gsap.com/)
 [Opera Neon agentic browser animation (home cursor&scroll / logo filter / text shifting) 16/7/25](https://www.operaneon.com/)
 
 
