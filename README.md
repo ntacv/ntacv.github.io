@@ -156,9 +156,10 @@ maybe generate project pages
 
 [Neomorphism design](https://tablbrowser.com/)
 
+[Opera Neon agentic browser animation (home cursor&scroll / logo filter / text shifting) 16/7/25](https://www.operaneon.com/)
+
 [Animation library and fun website](https://gsap.com/)
 from [a medium article to make iPad cursor](https://blog.prototypr.io/ipad-pointer-on-the-web-f3aaf48d515c)
 
-[Opera Neon agentic browser animation (home cursor&scroll / logo filter / text shifting) 16/7/25](https://www.operaneon.com/)
-
+[Modern fonts presentation website](https://vj-type.com/6-voyage)
 
