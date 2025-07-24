@@ -163,3 +163,4 @@ from [a medium article to make iPad cursor](https://blog.prototypr.io/ipad-point
 
 [Modern fonts presentation website](https://vj-type.com/6-voyage)
 
+[Variable typefaces website Rosetta](https://rosettatype.com/Handjet)
