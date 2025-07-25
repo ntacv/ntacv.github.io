@@ -149,6 +149,7 @@ maybe generate project pages
 [open source libraries for ai](https://dev.to/dev_kiran/top-5-open-source-tools-you-should-be-using-52g0)
 
 [Dia Browser Footer animation (try with images)](https://www.diabrowser.com/)
+[revamped browser company 25/7/25](https://www.thebrowser.company)
 
 [Aayush developer](https://apps.aayush.art/)
 
