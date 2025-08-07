@@ -51,6 +51,8 @@ check github workflow op (yml for lint build test deploy)
  - CI for unit tests (tap test, vitest)
 having a subdomain in full HTML
 
+comprare firebase and supabase use 
+
 render free version is not reliable. 
 
 ## TODO 
