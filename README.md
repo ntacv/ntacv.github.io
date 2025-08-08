@@ -15,7 +15,7 @@ each word inline, works as a menu that display the page below the text.
 FigmaAI is out
 
 ### Inspi
-- [Template Xfolio](https://www.figma.com/community/file/1191026033275812161/xfolio-portfolio-website-ui-kit)
+- [Template Xfolio](https://www.behance.net/gallery/160334607/XFOLIO-Portfolio-Website-UI-Kit?locale=fr_FR#)
 
 - Variables: fonts, colors, gradients, sizes, themes
 - Components: texts, buttons, cards, headers, navbars, sections
@@ -169,3 +169,5 @@ from [a medium article to make iPad cursor](https://blog.prototypr.io/ipad-point
 [Variable typefaces website Rosetta](https://rosettatype.com/Handjet)
 
 [VSCode character animation 1/8/25](https://code.visualstudio.com/)
+
+[Figma 404 page is a sandbox of themselves](https://www.figma.com/community/file/1191026033275812161/xfolio-portfolio-website-ui-kit)
