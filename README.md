@@ -116,6 +116,8 @@ maybe generate project pages
 3. projects, archives (websites, games), articles esilv
    embed Playbook ? or api ? same for insta vlogs embed?
 
+- [ ] my pc setup repo with all the recommandations 
+
 ## Other
 
 - email coding (fariha's newsletter) (table, head, send, manage backoffice)
