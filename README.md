@@ -175,3 +175,5 @@ from [a medium article to make iPad cursor](https://blog.prototypr.io/ipad-point
 [Figma 404 page is a sandbox of themselves](https://www.figma.com/community/file/1191026033275812161/xfolio-portfolio-website-ui-kit)
 
 [Ali Alshekri from Khobar simple portfolio](https://www.ali-sh.com/)
+
+[Sameera's website](https://www.sameerasw.com/)
