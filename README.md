@@ -127,6 +127,8 @@ maybe generate project pages
 
 [Autonomous Cars Modeling Project](https://github.com/ntacv/autonomous_gama_modeling)
 
+[Biblisere library native app](https://github.com/ntacv/biblisere)
+
 ## inspi
 [Angular scroll animation (28/06/24)](https://angular.dev/)
 
