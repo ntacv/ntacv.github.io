@@ -183,3 +183,5 @@ from [a medium article to make iPad cursor](https://blog.prototypr.io/ipad-point
 [Ali Alshekri from Khobar simple portfolio](https://www.ali-sh.com/)
 
 [Sameera's website](https://www.sameerasw.com/)
+
+[Open source project finder *coming*](https://oss.now/)
