@@ -58,9 +58,6 @@ render free version is not reliable.
 ## TODO 
 
 ### Urgent
-
-- [ ] todo
-
 - [ ] npm to yarn
 - [ ] html to ts
 - [ ] contact icon hover message to explain the link ex playbook "portfolio design", notion "knowledge sharing", linkedin "professional profil", codepen "dev experiments"
