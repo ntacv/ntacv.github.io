@@ -184,3 +184,5 @@ from [a medium article to make iPad cursor](https://blog.prototypr.io/ipad-point
 [Open source project finder (*coming*)](https://oss.now/)
 
 [F1 dashboard online](https://github.com/tdjsnelling/monaco)
+
+[visual react development (*to test*)](https://www.reactbricks.com/)
