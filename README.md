@@ -57,6 +57,11 @@ render free version is not reliable.
 
 ## TODO 
 
+1. ease the requirements
+2. delete the uneeded
+3. simplify and optimise
+4. automate (speed up)
+
 ### Urgent
 - [ ] npm to yarn
 - [ ] html to ts
