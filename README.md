@@ -62,6 +62,9 @@ render free version is not reliable.
 3. simplify and optimise
 4. automate (speed up)
 
+## Design 
+tabs with the sections (dev, robot, photo, vids, contact)
+
 ### Urgent
 - [ ] npm to yarn
 - [ ] html to ts
