@@ -3,16 +3,16 @@ const doc_id = "1xg-OM_tXRPOKN7Nd3BwPuxDFokHko9c7_MewAPGpj-A";
 const sheet_id = "projects";
 const api_url = ["https://docs.google.com/spreadsheets/d/","/edit?gid=","#gid="];
 
-const api_key = "";
+const api_key = "AIzaSyCnHahFvX5M06GoNyx_MFeCP538bCeibWc";
 
 const full_url = api_url[0] + doc_id + api_url[1] + sheet_id + api_url[2] + sheet_id;
 
-console.log("Google Sheets URL: " + full_url);
+//console.log("Google Sheets URL: " + full_url);
 
 const api_sheet_url = ["https://sheets.googleapis.com/v4/spreadsheets/","/values/","!","?key="];
 const full_api_url = api_sheet_url[0] + doc_id + api_sheet_url[1] + sheet_id + api_sheet_url[2] + "A1:Z100" + api_sheet_url[3] + api_key;
 
-console.log("Google Sheets API URL: " + full_api_url);
+//console.log("Google Sheets API URL: " + full_api_url);
 
 
 async function getData() {
@@ -25,8 +25,8 @@ async function getData() {
 
 
     const result = await response.json();
-    console.log("RESULT : ",result);
-    console.log("RESULT data : ",result.values);
+    //console.log("RESULT : ",result);
+    //console.log("RESULT data : ",result.values);
     
     const values = result.values; // Récupérer les lignes du document
     const titles = values.shift(); // Sortir la première ligne qui représente nos titres
@@ -44,7 +44,7 @@ async function getData() {
         }
         data.push(obj);
     }
-    console.log("OBJECT : ", data);
+    //console.log("OBJECT : ", data);
 
 
     return result.values;
@@ -55,5 +55,5 @@ async function getData() {
 
 const data = getData().then(res => { return res; });
 
-console.log("DATA : ", data );
-console.log("DATA[0] : ", data.then(r => r[0][0]) );
+//console.log("DATA : ", data );
+//console.log("DATA[0] : ", data.then(r => r[0][0]) );
