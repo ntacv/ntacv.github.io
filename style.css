@@ -28,6 +28,7 @@ body {
     font: var(--font-size) var(--font-family);
     background-color: var(--color-background-dark);
     color: var(--color-text-light);
+    word-wrap: break-word;
 }
 
 a {
@@ -213,7 +214,6 @@ a.fa {
     margin: 5px 2px;
 
     color: white;
-    background: ;
 }
 
 .fa:hover {

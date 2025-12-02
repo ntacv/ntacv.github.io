@@ -132,6 +132,12 @@ maybe generate project pages
 - email coding (fariha's newsletter) (table, head, send, manage backoffice)
   ?: fonts, responsivness in the table, too many png
 
+## Ideas
+
+- replace recursiv duplicate page by a onclick change of the card to the gif
+- Card idea <img src="assets/images/idea/openstack_card.png" width="150"/>
+
+
 ## Links to add
 
 [Autonomous Cars Modeling Project](https://github.com/ntacv/autonomous_gama_modeling)
