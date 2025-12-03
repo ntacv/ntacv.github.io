@@ -128,19 +128,21 @@ function Socials(props) {
 
 function Lang_percent(props) {
   return (
-    <>
+    <div
+      style={{
+        display: "flex",
+      }}
+    >
       <div
         style={{
           width: "100%",
           fontFamily: "Courier",
           color: "white",
           background: hexToRgbA(props.color, 0.7), //0.15),
-          display: "inline-block",
           padding: "10px 30px",
           position: "relative",
           fontWeight: "bold",
-
-          margin: "20px 0px",
+          margin: "0 0 20px 0",
           borderRadius: "20px",
         }}
       >
@@ -151,10 +153,24 @@ function Lang_percent(props) {
             width: props.percent + "%",
           }}
         ></div>
-        <p style={{}}>{props.children}</p>
+        <span>{props.children}</span>
       </div>
+      <a
+        target="_blank"
+        href={props.projectUrl}
+        className="fa fa-link"
+        style={{
+          background: hexToRgbA(props.color, 0.1),
+          margin: "0 0 0 10px",
+          height: "50px",
+          width: "50px",
+          lineHeight: "26px",
+          fontSize: "26px",
+          borderRadius: 15,
+        }}
+      ></a>
       <br />
-    </>
+    </div>
   );
 }
 Lang_percent.defaultProps = {
@@ -205,43 +221,43 @@ function Lang_list() {
       <Code_text>To contact me: </Code_text>
       <br />
       <br />
-        <a target="_blank" href="https://ntacv.com" className="fa fa-globe"></a>
-        <a
-          target="_blank"
-          href="https://www.playbook.com/s/ntaportfolio/nathan-s-playbook"
-          className="fa fa-book"
-        ></a>
-        <a
-          target="_blank"
-          href="https://ntacknpro.notion.site/"
-          className="fa fa-newspaper-o"
-        ></a>
-        <a
-          target="_blank"
-          href="https://www.linkedin.com/in/nathanchoukroun/"
-          className="fa fa-linkedin"
-        ></a>
-        <a
-          target="_blank"
-          href="https://github.com/ntacv"
-          className="fa fa-github"
-        ></a>
-        <a
-          target="_blank"
-          href="https://www.instagram.com/ntacv/"
-          className="fa fa-instagram"
-        ></a>
-        <a
-          target="_blank"
-          href="https://www.youtube.com/@enta1973"
-          className="fa fa-youtube-play"
-        ></a>
-        <a
-          target="_blank"
-          href="https://codepen.io/Natroun"
-          className="fa fa-codepen"
-        ></a>
-        
+      <a target="_blank" href="https://ntacv.com" className="fa fa-globe"></a>
+      <a
+        target="_blank"
+        href="https://www.playbook.com/s/ntaportfolio/nathan-s-playbook"
+        className="fa fa-book"
+      ></a>
+      <a
+        target="_blank"
+        href="https://ntacknpro.notion.site/"
+        className="fa fa-newspaper-o"
+      ></a>
+      <a
+        target="_blank"
+        href="https://www.linkedin.com/in/nathanchoukroun/"
+        className="fa fa-linkedin"
+      ></a>
+      <a
+        target="_blank"
+        href="https://github.com/ntacv"
+        className="fa fa-github"
+      ></a>
+      <a
+        target="_blank"
+        href="https://www.instagram.com/ntacv/"
+        className="fa fa-instagram"
+      ></a>
+      <a
+        target="_blank"
+        href="https://www.youtube.com/@enta1973"
+        className="fa fa-youtube-play"
+      ></a>
+      <a
+        target="_blank"
+        href="https://codepen.io/Natroun"
+        className="fa fa-codepen"
+      ></a>
+
       <br />
       <br />
       {/* <Socials></Socials> */}
@@ -321,7 +337,6 @@ function Lang_list() {
       <Mosaic />
       <br />
       <br />
-      
     </>
   );
 }
