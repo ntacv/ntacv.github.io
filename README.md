@@ -194,3 +194,5 @@ from [a medium article to make iPad cursor](https://blog.prototypr.io/ipad-point
 [F1 dashboard online](https://github.com/tdjsnelling/monaco)
 
 [visual react development (*to test*)](https://www.reactbricks.com/)
+
+[type design ressources](https://typedesignresources.com/)
