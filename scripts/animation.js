@@ -1,8 +1,10 @@
-var animated_object = document.querySelector(".zoom_animation");
-animated_object.style.display = "none";
+
 var animation_toggle = document.querySelector(".animation_toggle");
-animation_toggle.checked = false;
+animation_toggle.checked = true;
 var animation_enabled = animation_toggle.checked;
+
+var animated_object = document.querySelector(".zoom_animation");
+animated_object.style.display = animation_enabled ? "block" : "none";
 
 window.addEventListener("scroll", function () {
   var to_top = window.scrollY; //pageYOffset;
