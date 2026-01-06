@@ -205,6 +205,13 @@ function Lang_list() {
       <Code_text>To contact me: </Code_text>
       <br />
       <br />
+        {/*       
+          // children : description
+          // src: image source
+          // href: link
+          // className="theme-{props.theme}" for icon color  
+          
+          */}
         <a target="_blank" href="https://ntacv.com" className="fa fa-globe"></a>
         <a
           target="_blank"
