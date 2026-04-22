@@ -71,6 +71,8 @@ To enable live project data loading, generate an API key:
 
 **Security**: Never commit `.env` to version control. The file is excluded in `.gitignore`.
 
+Check out bitwarden connection
+
 ## Project Structure
 
 - src/App.jsx: main page composition.
