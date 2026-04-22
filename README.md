@@ -45,9 +45,31 @@ Create a `.env` file from `.env.example`.
 
 Available variables:
 
-- VITE_GOOGLE_SHEETS_API_KEY: optional key for loading Google Sheets project data.
+- VITE_GOOGLE_SHEETS_API_KEY: optional key for loading Google Sheets API project data.
 
 If the variable is missing, the app stays functional and shows a non-blocking message in the project data section.
+
+### Configure Google Sheets API Key
+
+To enable live project data loading, generate an API key:
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project (or select existing)
+3. Enable the **Google Sheets API**:
+   - In the left menu, go to **APIs & Services** > **Library**
+   - Search for "Sheets API"
+   - Click the result and press **Enable**
+4. Create an API key:
+   - Go to **APIs & Services** > **Credentials**
+   - Click **Create Credentials** > **API Key**
+   - Copy the generated key
+5. Add to `.env`:
+   ```
+   VITE_GOOGLE_SHEETS_API_KEY=your_api_key_here
+   ```
+6. Restart the dev server (`npm run dev`)
+
+**Security**: Never commit `.env` to version control. The file is excluded in `.gitignore`.
 
 ## Project Structure
 
