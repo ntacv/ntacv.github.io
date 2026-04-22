@@ -1,0 +1,24 @@
+
+## Formation React Native
+- react-navigation/native
+- varibles.ts (or style variable "font:;")
+- effector stores (useStoreMap should return an object instead of undefined value or it will not sync with the listener)
+- axios get with generated namespaces and requests
+- navigation drawer
+- flex native
+- react-native-svg
+- gitlab merge requests
+- prettier config
+- horizontal scrollview
+- list of object to object list to store
+- login with bearer 
+- update api on useEffect
+- const regex inside of react component
+- formik yup
+- keyboardAvoidingView native
+- git amend & prune
+- prisma db
+- array manipultation with flat map filter reduce
+- react context principles 
+- cursor tests, vscode agent, gemini labwork
+- 
