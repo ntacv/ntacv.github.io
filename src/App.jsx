@@ -45,7 +45,7 @@ export default function App() {
             <h1>Nathan Choukroun</h1>
             <p>
               <a href="https://github.com/ntacv" target="_blank" rel="noreferrer">
-                My Github: ntacv
+                My GitHub: ntacv
               </a>
             </p>
             <p>
