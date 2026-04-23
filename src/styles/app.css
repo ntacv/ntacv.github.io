@@ -70,6 +70,14 @@ section {
   display: none;
 }
 
+.not-found-page {
+  min-height: 100vh;
+  padding: 4rem 1.5rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding-top: 0;
+}
 .toggle-row {
   margin-top: 12px;
   display: inline-flex;

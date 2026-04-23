@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+      // On static hosts (e.g. GitHub Pages), unknown paths return 404 before React loads.
+      // Redirect those paths to HashRouter format so the app can render its own NotFound page.
+      (function redirectToHashRoute(location) {
+        var route = location.pathname + location.search + location.hash;
+        location.replace(location.origin + "/#" + route);
+      })(window.location);
+    </script>
+  </head>
+  <body>
+    <noscript>
+      JavaScript is required. Open
+      <a href="/">the home page</a>.
+    </noscript>
+  </body>
+</html>

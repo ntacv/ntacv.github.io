@@ -18,7 +18,7 @@
 - keyboardAvoidingView native
 - git amend & prune
 - prisma db
-- array manipultation with flat map filter reduce
+- array manipulation with flat map filter reduce
 - react context principles 
 - cursor tests, vscode agent, gemini labwork
 - 
