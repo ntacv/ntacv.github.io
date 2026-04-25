@@ -17,16 +17,6 @@ export const SOCIAL_LINKS = [
   { icon: "codepen", href: "https://codepen.io/Natroun", label: "CodePen" },
 ];
 
-export const LANGUAGES = [
-  { color: "#e65127", percent: 90, text: "<html> pretty much a <master/> </html>" },
-  { color: "#0c73b8", percent: 20, text: ".css { experience: intermediate expert; }" },
-  { color: "#f7df1e", percent: 50, text: "if (javascript) { it is kind of the easiest; }" },
-  { color: "#8d96c0", percent: 50, text: "<?php> $_GLOBAL['EatCookies'] = 'cause it\'s good'; ?>" },
-  { color: "#0035FF", percent: 50, text: "from (python) import * ofMyKnowledge" },
-  { color: "#212121", percent: 50, text: "function React() { return 'can code this with react' }" },
-  { color: "#813084", percent: 50, text: "namespace C# { class public default set static void Main() }" },
-];
-
 export const PROJECT_CARDS = [
   { src: "ntacv.png", href: "/", text: "My profile" },
   { src: "exposit.png", href: "https://exposit.fr", text: "Exposit.fr" },

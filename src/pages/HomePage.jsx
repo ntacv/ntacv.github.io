@@ -1,13 +1,74 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import CardContainer from "../components/CardContainer";
 import CardItem from "../components/CardItem";
 import CodeText from "../components/CodeText";
-import LangPercent from "../components/LangPercent";
+import LanguageDataList from "../components/LanguageDataList";
+import LiveCard from "../components/LiveCard";
 import Mosaic from "../components/Mosaic";
-import ProjectDataList from "../components/ProjectDataList";
 import SocialLinks from "../components/SocialLinks";
-import { HOBBY_CARDS, LANGUAGES, PROJECT_CARDS } from "../data/content";
+import { HOBBY_CARDS, PROJECT_CARDS } from "../data/content";
 import useScrollAnimation from "../hooks/useScrollAnimation";
+
+const DOC_ID = "1xg-OM_tXRPOKN7Nd3BwPuxDFokHko9c7_MewAPGpj-A";
+const TOGGLES_SHEET_ID = "toggles";
+
+/**
+ * @param {string} value
+ * @returns {string}
+ */
+function normalizeToggleName(value) {
+  return String(value).trim().toLowerCase().replace(/\s+/g, "");
+}
+
+/**
+ * @param {string} value
+ * @returns {boolean}
+ */
+function parseToggleValue(value) {
+  return ["true", "1", "yes", "on"].includes(String(value).trim().toLowerCase());
+}
+
+/**
+ * @param {string[][] | undefined} values
+ * @returns {Record<string, boolean>}
+ */
+function mapToggles(values) {
+  if (!Array.isArray(values)) {
+    return {};
+  }
+
+  /** @type {Record<string, boolean>} */
+  const toggles = {};
+  values.forEach((row) => {
+    const name = normalizeToggleName(String(row[0] || ""));
+    if (!name) {
+      return;
+    }
+
+    const enabled = parseToggleValue(String(row[1] || ""));
+    toggles[name] = Boolean(toggles[name]) || enabled;
+  });
+
+  return toggles;
+}
+
+/**
+ * @param {Record<string, boolean>} toggles
+ * @param {string[]} aliases
+ * @returns {boolean}
+ */
+function isToggleEnabled(toggles, aliases) {
+  const matched = aliases
+    .map((alias) => normalizeToggleName(alias))
+    .filter((alias) => Object.prototype.hasOwnProperty.call(toggles, alias))
+    .map((alias) => toggles[alias]);
+
+  if (!matched.length) {
+    return true;
+  }
+
+  return matched.some(Boolean);
+}
 
 /**
  * Render the animated landing page.
@@ -40,12 +101,62 @@ function ZoomAnimation() {
 export default function HomePage() {
   const [animationEnabled, setAnimationEnabled] = useState(true);
   const [startFromZero, setStartFromZero] = useState(false);
+  const [sectionToggles, setSectionToggles] = useState(/** @type {Record<string, boolean>} */ ({}));
 
-  useScrollAnimation(animationEnabled, startFromZero);
+  const key = import.meta.env.VITE_GOOGLE_SHEETS_API_KEY;
+  const togglesApiUrl = useMemo(() => {
+    if (!key) {
+      return "";
+    }
+
+    return `https://sheets.googleapis.com/v4/spreadsheets/${DOC_ID}/values/${TOGGLES_SHEET_ID}!A1:B100?key=${key}`;
+  }, [key]);
+
+  useEffect(() => {
+    if (!togglesApiUrl) {
+      setSectionToggles({});
+      return;
+    }
+
+    const controller = new AbortController();
+
+    async function loadToggles() {
+      try {
+        const response = await fetch(togglesApiUrl, { signal: controller.signal });
+        if (!response.ok) {
+          throw new Error(`Google Sheets toggle response: ${response.status}`);
+        }
+
+        const payload = await response.json();
+        setSectionToggles(mapToggles(payload.values));
+      } catch (error) {
+        if (error instanceof Error && error.name === "AbortError") {
+          return;
+        }
+
+        setSectionToggles({});
+      }
+    }
+
+    loadToggles();
+
+    return () => controller.abort();
+  }, [togglesApiUrl]);
+
+  const showAnimation = isToggleEnabled(sectionToggles, ["animation", "animations"]);
+  const showIntro = isToggleEnabled(sectionToggles, ["intro", "introduction"]);
+  const showLinks = isToggleEnabled(sectionToggles, ["links", "social", "sociallinks", "contact", "contacts"]);
+  const showLanguages = isToggleEnabled(sectionToggles, ["languages", "language"]);
+  const showProjects = isToggleEnabled(sectionToggles, ["projects", "project"]);
+  const showHobbies = isToggleEnabled(sectionToggles, ["hobbies", "hobby"]);
+  const showPhotos = isToggleEnabled(sectionToggles, ["photos", "photo", "photography"]);
+  const showLive = isToggleEnabled(sectionToggles, ["live", "liveproject", "liveprojects"]);
+
+  useScrollAnimation(showAnimation && animationEnabled, startFromZero);
 
   return (
     <>
-      <ZoomAnimation />
+      {showAnimation ? <ZoomAnimation /> : null}
 
       <header>
         <div className="content-full">
@@ -62,13 +173,15 @@ export default function HomePage() {
               </a>
             </p>
 
-            <div className="toggle-row">
-              Enable animation
-              <label className="switch">
-                <input type="checkbox" checked={animationEnabled} onChange={(event) => setAnimationEnabled(event.target.checked)} />
-                <span className="slider round" />
-              </label>
-            </div>
+            {showAnimation ? (
+              <div className="toggle-row">
+                Enable animation
+                <label className="switch">
+                  <input type="checkbox" checked={animationEnabled} onChange={(event) => setAnimationEnabled(event.target.checked)} />
+                  <span className="slider round" />
+                </label>
+              </div>
+            ) : null}
 
             <noscript>Please activate Javascript in your browser settings for a better experience.</noscript>
           </div>
@@ -92,70 +205,80 @@ export default function HomePage() {
             </label>
           </div>
 
-          <p>
-            Lorem ipsum dolor... I am Nathan, an engineer from <a href="https://www.esilv.fr/en/" target="_blank" rel="noreferrer">ESILV</a>. This is not a
-            professional presentation so you can find my contacts down there. Thank you for reading and I like critics if you have some.
-          </p>
+          {showIntro ? (
+            <p>
+              Lorem ipsum dolor... I am Nathan, an engineer from <a href="https://www.esilv.fr/en/" target="_blank" rel="noreferrer">ESILV</a>. This is not a
+              professional presentation so you can find my contacts down there. Thank you for reading and I like critics if you have some.
+            </p>
+          ) : null}
 
-          <br />
-          <br />
-          <CodeText>To contact me:</CodeText>
-          <br />
-          <br />
-          <SocialLinks />
+          {showLinks ? (
+            <>
+              <br />
+              <br />
+              <CodeText>To contact me:</CodeText>
+              <br />
+              <br />
+              <SocialLinks />
+            </>
+          ) : null}
 
-          <br />
-          <br />
-          <CodeText>Languages I learned:</CodeText>
-          <br />
-          <br />
+          {showLanguages ? (
+            <>
+              <br />
+              <br />
+              <CodeText>Languages I learned:</CodeText>
+              <br />
+              <br />
+              <LanguageDataList />
+            </>
+          ) : null}
 
-          {LANGUAGES.map((language) => (
-            <LangPercent key={language.text} color={language.color} percent={language.percent}>
-              {language.text}
-            </LangPercent>
-          ))}
+          {showProjects ? (
+            <>
+              <br />
+              <CodeText>The projects I have done:</CodeText>
+              <br />
+              <br />
+              <CardContainer className="project-cards-grid">
+                {PROJECT_CARDS.map((card) => (
+                  <CardItem key={`${card.text}-${card.src}`} href={card.href} src={card.src}>
+                    {card.text}
+                  </CardItem>
+                ))}
+              </CardContainer>
+            </>
+          ) : null}
 
-          <br />
-          <CodeText>The projects I have done:</CodeText>
-          <br />
-          <br />
+          {showHobbies ? (
+            <>
+              <br />
+              <br />
+              <CodeText>What I like to do:</CodeText>
+              <br />
+              <br />
+              <CardContainer>
+                {HOBBY_CARDS.map((card) => (
+                  <CardItem key={`${card.text}-${card.src}`} href={card.href} src={card.src}>
+                    {card.text}
+                  </CardItem>
+                ))}
+              </CardContainer>
+            </>
+          ) : null}
 
-          <CardContainer>
-            {PROJECT_CARDS.map((card) => (
-              <CardItem key={`${card.text}-${card.src}`} href={card.href} src={card.src}>
-                {card.text}
-              </CardItem>
-            ))}
-          </CardContainer>
+          {showPhotos ? (
+            <>
+              <br />
+              <br />
+              <CodeText>Photography:</CodeText>
+              <br />
+              <br />
+              <Mosaic />
+            </>
+          ) : null}
 
-          <br />
-          <br />
-          <CodeText>What I like to do:</CodeText>
-          <br />
-          <br />
-
-          <CardContainer>
-            {HOBBY_CARDS.map((card) => (
-              <CardItem key={`${card.text}-${card.src}`} href={card.href} src={card.src}>
-                {card.text}
-              </CardItem>
-            ))}
-          </CardContainer>
-
-          <br />
-          <br />
-          <CodeText>Photography:</CodeText>
-          <br />
-          <br />
-          <Mosaic />
-
-          <br />
-          <br />
-          <CodeText>Live project data:</CodeText>
-          <br />
-          <br />
-          <ProjectDataList />
+          {showLive ? <LiveCard /> : null}
         </section>
       </main>
     </>

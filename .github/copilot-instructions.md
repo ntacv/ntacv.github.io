@@ -61,6 +61,8 @@ public/
 - Never hardcode keys in source code.
 - Copy `.env.example` to `.env` locally; add your actual key (not committed).
 - If the key is missing, `ProjectDataList.jsx` gracefully shows a non-blocking message.
+- Home section visibility is driven by the Google Sheets `toggles` tab (`A:B`), with supported keys: `projects`, `animation`, `intro`, `links`, `languages`, `live`, `hobbies`, `photos`.
+- Toggle values are considered enabled for `true`, `1`, `yes`, `on` (case-insensitive); missing rows default to visible.
 
 ### 4. Styling
 
