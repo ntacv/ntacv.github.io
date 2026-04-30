@@ -23,75 +23,68 @@ const ICONS = {
 };
 
 /**
+ * Normalize a sheet icon name to match the local icon map.
+ * @param {string | null | undefined} value
+ * @returns {string}
+ */
+function normalizeIconName(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/^fa[srlb]?-?/, "")
+    .replace(/[^a-z0-9]/g, "") || "globe";
+}
+
+/**
+ * Convert a sheet/static link into the unified display shape.
+ * @param {Object} link
+ * @param {number} index
+ * @returns {{ key: string, title: string, url: string, icon: string, color: string, description: string }}
+ */
+function normalizeLink(link, index) {
+  const title = link.title || link.label || "Untitled";
+  const url = link.url || link.href || "#";
+  const icon = normalizeIconName(link.icon);
+  const color = link.color || "var(--color-primary)";
+  const description = link.description || link.desc || "";
+  const key = url !== "#" ? url : `${title}-${index}`;
+
+  return { key, title, url, icon, color, description };
+}
+
+/**
  * Render social links from Google Sheets contacts tab, or fallback to static data.
- * When sheet data is present and has descriptions, render as a column layout with icon + title.
- * Otherwise, render as circular icon buttons (fallback style).
+ * The section always uses a column-card layout so sheet data updates are visible immediately.
  * @returns {React.ReactElement}
  */
 export default function SocialLinks() {
   const { contacts, status } = useContactsData();
 
-  // Fallback to static data if API is disabled or loading fails
-  const linksToRender = status === "success" && contacts.length > 0 ? contacts : SOCIAL_LINKS;
-  const useColumnLayout = status === "success" && contacts.length > 0;
+  const sourceLinks = status === "success" && contacts.length > 0 ? contacts : SOCIAL_LINKS;
 
-  if (status === "disabled" || status === "error") {
-    // Still render fallback links silently
-    return (
-      <div className="social-links" aria-label="Contact links">
-        {SOCIAL_LINKS.map((link) => {
-          const Icon = ICONS[link.icon] ?? FaGlobe;
-          return (
-            <a key={link.href} target="_blank" rel="noreferrer" href={link.href} aria-label={link.label} title={link.label}>
-              <Icon />
-            </a>
-          );
-        })}
-      </div>
-    );
-  }
-
-  if (useColumnLayout) {
-    // Column layout with icon + title for sheet-driven contacts
-    return (
-      <div className="social-links-column" aria-label="Contact links">
-        {linksToRender.map((link, index) => {
-          const Icon = ICONS[link.icon] ?? FaGlobe;
-          const key = link.url || link.href || index;
-          return (
-            <a
-              key={key}
-              className="social-link-item"
-              target="_blank"
-              rel="noreferrer"
-              href={link.url || link.href}
-              aria-label={link.title || link.label}
-              title={link.description || link.title || link.label}
-              style={{ "--link-color": link.color || "var(--color-primary)" }}
-            >
-              <span className="social-link-icon">
-                <Icon />
-              </span>
-              <span className="social-link-text">
-                <span className="social-link-title">{link.title || link.label}</span>
-                {link.description && <span className="social-link-desc">{link.description}</span>}
-              </span>
-            </a>
-          );
-        })}
-      </div>
-    );
-  }
-
-  // Circular icon buttons for fallback static data
   return (
-    <div className="social-links" aria-label="Contact links">
-      {linksToRender.map((link, index) => {
-        const Icon = ICONS[link.icon] ?? FaGlobe;
-        const key = link.url || link.href || index;
+    <div className="social-links-column" aria-label="Contact links">
+      {sourceLinks.map((link, index) => {
+        const normalizedLink = normalizeLink(link, index);
+        const Icon = ICONS[normalizedLink.icon] ?? FaGlobe;
         return (
-          <a key={key} target="_blank" rel="noreferrer" href={link.url || link.href} aria-label={link.title || link.label} title={link.title || link.label}>
-            <Icon />
+          <a
+            key={normalizedLink.key}
+            className="social-link-item"
+            target="_blank"
+            rel="noreferrer"
+            href={normalizedLink.url}
+            aria-label={normalizedLink.title}
+            title={normalizedLink.description || normalizedLink.title}
+            style={{ "--link-color": normalizedLink.color }}
+          >
+            <span className="social-link-icon">
+              <Icon />
+            </span>
+            <span className="social-link-text">
+              <span className="social-link-title">{normalizedLink.title}</span>
+              {normalizedLink.description ? <span className="social-link-desc">{normalizedLink.description}</span> : null}
+            </span>
           </a>
         );
       })}

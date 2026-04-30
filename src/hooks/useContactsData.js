@@ -1,12 +1,24 @@
 import { useEffect, useMemo, useState } from "react";
-import { mapRows, getValue, safeUrl, safeColor } from "../lib/sheetHelpers";
+import { buildSheetUrl, mapRows, normalizeKey, safeUrl, safeColor } from "../lib/sheetHelpers";
 
 const DOC_ID = "1xg-OM_tXRPOKN7Nd3BwPuxDFokHko9c7_MewAPGpj-A";
 const SHEET_ID = "contacts";
 
-/**
- * @typedef {Object.<string, string | null>} ContactRow
- */
+const CONTACT_HEADER_KEYS = new Set([
+  "title",
+  "name",
+  "label",
+  "url",
+  "href",
+  "link",
+  "icon",
+  "type",
+  "color",
+  "colour",
+  "desc",
+  "description",
+  "text",
+]);
 
 /**
  * @typedef {Object} Contact
@@ -18,17 +30,45 @@ const SHEET_ID = "contacts";
  */
 
 /**
- * @param {ContactRow[]} rows
+ * @param {Record<string, string | null>} contact
+ * @returns {Contact}
+ */
+function mapContactRow(contact) {
+  return {
+    title: String(contact.title || contact.name || contact.label || "Untitled").trim(),
+    url: safeUrl(String(contact.url || contact.href || contact.link || "")) || "#",
+    icon: String(contact.icon || contact.type || "globe").trim().toLowerCase() || "globe",
+    color: safeColor(String(contact.color || contact.colour || "")),
+    description: String(contact.desc || contact.description || contact.text || "").trim(),
+  };
+}
+
+/**
+ * @param {string[][] | undefined} values
  * @returns {Contact[]}
  */
-function mapContacts(rows) {
-  return rows.map((contact) => ({
-    title: getValue(contact, ["title", "name", "label"]) || "Untitled",
-    url: safeUrl(getValue(contact, ["url", "href", "link"])) || "#",
-    icon: getValue(contact, ["icon", "type"]).toLowerCase() || "globe",
-    color: safeColor(getValue(contact, ["color", "colour"])),
-    description: getValue(contact, ["desc", "description", "text"]) || "",
-  }));
+function mapContacts(values) {
+  if (!Array.isArray(values) || values.length === 0) {
+    return [];
+  }
+
+  const firstRow = values[0] || [];
+  const normalizedFirstRow = firstRow.map((value) => normalizeKey(value));
+  const hasHeaderRow = normalizedFirstRow.some((value) => CONTACT_HEADER_KEYS.has(value));
+
+  if (hasHeaderRow) {
+    return mapRows(values).map((row) => mapContactRow(row));
+  }
+
+  return values
+    .map((row) => ({
+      title: row[0] || "Untitled",
+      url: row[1] || "",
+      icon: row[2] || "globe",
+      color: row[3] || "",
+      description: row[4] || "",
+    }))
+    .map((row) => mapContactRow(row));
 }
 
 /**
@@ -47,7 +87,7 @@ export function useContactsData() {
       return "";
     }
 
-    return `https://sheets.googleapis.com/v4/spreadsheets/${DOC_ID}/values/${SHEET_ID}!A1:E100?key=${key}`;
+    return buildSheetUrl(DOC_ID, SHEET_ID, "A1:E100", key);
   }, [key]);
 
   useEffect(() => {
@@ -69,8 +109,7 @@ export function useContactsData() {
         }
 
         const payload = await response.json();
-        const rows = mapRows(payload.values);
-        setContacts(mapContacts(rows));
+        setContacts(mapContacts(payload.values));
         setStatus("success");
       } catch (error) {
         if (error instanceof Error && error.name === "AbortError") {
