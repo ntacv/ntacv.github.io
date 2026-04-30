@@ -110,6 +110,42 @@ function text(value) {
 }
 
 /**
+ * @param {string} url
+ * @returns {string | null}
+ */
+function normalizeImageUrl(url) {
+  const value = text(url);
+  if (!value) {
+    return null;
+  }
+
+  const githubBlobMatch = value.match(/^https?:\/\/github\.com\/([^/]+)\/([^/]+)\/blob\/([^/]+)\/(.+)$/i);
+  if (githubBlobMatch) {
+    return safeUrl(`https://raw.githubusercontent.com/${githubBlobMatch[1]}/${githubBlobMatch[2]}/${githubBlobMatch[3]}/${githubBlobMatch[4]}`);
+  }
+
+  const driveFileMatch = value.match(/^https?:\/\/drive\.google\.com\/(?:file\/d\/|open\?id=)([a-zA-Z0-9_-]+)(?:\/[^?]*)?(?:\?.*)?$/i);
+  if (driveFileMatch) {
+    return safeUrl(`https://drive.google.com/uc?export=view&id=${driveFileMatch[1]}`);
+  }
+
+  const driveThumbnailMatch = value.match(/^https?:\/\/drive\.google\.com\/thumbnail\?id=([a-zA-Z0-9_-]+)(?:&.*)?$/i);
+  if (driveThumbnailMatch) {
+    return safeUrl(`https://drive.google.com/uc?export=view&id=${driveThumbnailMatch[1]}`);
+  }
+
+  if (value.startsWith("http://") || value.startsWith("https://") || value.startsWith("data:")) {
+    return safeUrl(value) || value;
+  }
+
+  if (value.startsWith("/")) {
+    return value;
+  }
+
+  return `/assets/images/${value}`;
+}
+
+/**
  * @param {string | null | undefined} image
  * @returns {string | null}
  */
@@ -119,11 +155,15 @@ function safeImageUrl(image) {
     return null;
   }
 
-  if (value.startsWith("http://") || value.startsWith("https://") || value.startsWith("/")) {
-    return value;
+  // Handle Google Sheets IMAGE("url") formulas or variants like =IMAGE("url")
+  // Extract URL from IMAGE(...) formula if present
+  const imageFormulaMatch = value.match(/=?\s*IMAGE\(\s*(?:"([^"]+)"|'([^']+)'|([^,\)]+))/i);
+  if (imageFormulaMatch) {
+    const extracted = imageFormulaMatch[1] || imageFormulaMatch[2] || imageFormulaMatch[3] || "";
+    return normalizeImageUrl(String(extracted));
   }
 
-  return `/assets/images/${value}`;
+  return normalizeImageUrl(value);
 }
 
 /**
@@ -224,7 +264,7 @@ export default function LiveCard() {
       return "";
     }
 
-    return `https://sheets.googleapis.com/v4/spreadsheets/${DOC_ID}/values/${SHEET_ID}!A1:Z200?key=${key}`;
+    return `https://sheets.googleapis.com/v4/spreadsheets/${DOC_ID}/values/${SHEET_ID}!A1:Z200?key=${key}&valueRenderOption=FORMULA`;
   }, [key]);
 
   useEffect(() => {
