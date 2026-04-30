@@ -24,6 +24,8 @@ const ICONS = {
 
 /**
  * Render social links from Google Sheets contacts tab, or fallback to static data.
+ * When sheet data is present and has descriptions, render as a column layout with icon + title.
+ * Otherwise, render as circular icon buttons (fallback style).
  * @returns {React.ReactElement}
  */
 export default function SocialLinks() {
@@ -31,6 +33,7 @@ export default function SocialLinks() {
 
   // Fallback to static data if API is disabled or loading fails
   const linksToRender = status === "success" && contacts.length > 0 ? contacts : SOCIAL_LINKS;
+  const useColumnLayout = status === "success" && contacts.length > 0;
 
   if (status === "disabled" || status === "error") {
     // Still render fallback links silently
@@ -48,6 +51,39 @@ export default function SocialLinks() {
     );
   }
 
+  if (useColumnLayout) {
+    // Column layout with icon + title for sheet-driven contacts
+    return (
+      <div className="social-links-column" aria-label="Contact links">
+        {linksToRender.map((link, index) => {
+          const Icon = ICONS[link.icon] ?? FaGlobe;
+          const key = link.url || link.href || index;
+          return (
+            <a
+              key={key}
+              className="social-link-item"
+              target="_blank"
+              rel="noreferrer"
+              href={link.url || link.href}
+              aria-label={link.title || link.label}
+              title={link.description || link.title || link.label}
+              style={{ "--link-color": link.color || "var(--color-primary)" }}
+            >
+              <span className="social-link-icon">
+                <Icon />
+              </span>
+              <span className="social-link-text">
+                <span className="social-link-title">{link.title || link.label}</span>
+                {link.description && <span className="social-link-desc">{link.description}</span>}
+              </span>
+            </a>
+          );
+        })}
+      </div>
+    );
+  }
+
+  // Circular icon buttons for fallback static data
   return (
     <div className="social-links" aria-label="Contact links">
       {linksToRender.map((link, index) => {
