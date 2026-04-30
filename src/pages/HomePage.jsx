@@ -167,11 +167,6 @@ export default function HomePage() {
                 My GitHub: ntacv
               </a>
             </p>
-            <p>
-              <a href="/pages/cv/" target="_blank" rel="noreferrer">
-                My resume
-              </a>
-            </p>
 
             {showAnimation ? (
               <div className="toggle-row">

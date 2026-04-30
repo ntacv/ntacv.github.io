@@ -484,6 +484,10 @@ section {
   background: blue;
 }
 
+.zoom-animation.disabled-static .anim-bloc {
+  display: none;
+}
+
 .switch {
   position: relative;
   display: inline-block;
