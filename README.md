@@ -21,7 +21,7 @@ npm run dev
 
 Default URL:
 
-- http://127.0.0.1:5173
+- http://localhost:5173
 
 ## Build
 
@@ -48,6 +48,41 @@ Available variables:
 - VITE_GOOGLE_SHEETS_API_KEY: optional key for loading Google Sheets API project data.
 
 If the variable is missing, the app stays functional and shows a non-blocking message in the project data section.
+
+## Google Sheets Toggles
+
+The homepage can be controlled from the Google Sheet `toggles` tab (`A:B`):
+
+- **Column A**: toggle name
+- **Column B**: toggle value
+
+Supported section toggles:
+
+- `projects`
+- `animation`
+- `intro`
+- `links`
+- `languages`
+- `live`
+- `hobbies`
+- `photos`
+
+Toggle behavior:
+
+- Enabled values: `true`, `1`, `yes`, `on` (case-insensitive)
+- Any other value is treated as disabled
+- Missing toggle rows default to visible
+- Names are normalized (lowercase, spaces removed)
+
+## Google Sheets Language Data
+
+The "Languages I learned" section is loaded from the Google Sheet `languages` tab.
+
+- Range used: `A:Z`
+- Expected columns: `title`, `description`, `color`, `percent of skill`, `link`
+- Supported aliases are accepted for compatibility (`desc/text`, `percent`, `url/href`, etc.)
+- `color` should be a hex value (`#RGB` or `#RRGGBB`)
+- `percent of skill` is clamped between `0` and `100`
 
 ### Configure Google Sheets API Key
 

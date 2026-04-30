@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
+import CodeText from "./CodeText";
 
 const DOC_ID = "1xg-OM_tXRPOKN7Nd3BwPuxDFokHko9c7_MewAPGpj-A";
-const SHEET_ID = "projects";
+const PROJECT_SHEET_ID = "projects";
 
 /** @type {Record<number, string>} */
 const STATUS = {
@@ -66,21 +67,21 @@ function safeUrl(url) {
 
 export default function ProjectDataList() {
   const [projects, setProjects] = useState(/** @type {ProjectRow[]} */ ([]));
-  const [status, setStatus] = useState("idle");
+  const [status, setStatus] = useState("loading");
   const [errorMessage, setErrorMessage] = useState("");
 
   const key = import.meta.env.VITE_GOOGLE_SHEETS_API_KEY;
 
-  const apiUrl = useMemo(() => {
+  const projectApiUrl = useMemo(() => {
     if (!key) {
       return "";
     }
 
-    return `https://sheets.googleapis.com/v4/spreadsheets/${DOC_ID}/values/${SHEET_ID}!A1:Z100?key=${key}`;
+    return `https://sheets.googleapis.com/v4/spreadsheets/${DOC_ID}/values/${PROJECT_SHEET_ID}!A1:Z100?key=${key}`;
   }, [key]);
 
   useEffect(() => {
-    if (!apiUrl) {
+    if (!projectApiUrl) {
       setStatus("disabled");
       return;
     }
@@ -92,13 +93,13 @@ export default function ProjectDataList() {
       setErrorMessage("");
 
       try {
-        const response = await fetch(apiUrl, { signal: controller.signal });
-        if (!response.ok) {
-          throw new Error(`Google Sheets response: ${response.status}`);
+        const projectsResponse = await fetch(projectApiUrl, { signal: controller.signal });
+        if (!projectsResponse.ok) {
+          throw new Error(`Google Sheets projects response: ${projectsResponse.status}`);
         }
 
-        const payload = await response.json();
-        const mapped = mapRows(payload.values);
+        const projectsPayload = await projectsResponse.json();
+        const mapped = mapRows(projectsPayload.values);
         setProjects(mapped);
         setStatus("success");
       } catch (error) {
@@ -114,47 +115,47 @@ export default function ProjectDataList() {
     loadProjects();
 
     return () => controller.abort();
-  }, [apiUrl]);
+  }, [projectApiUrl]);
 
-  if (status === "disabled") {
-    return (
-      <div className="project-state">
-        Project list API key is not configured. Add VITE_GOOGLE_SHEETS_API_KEY in .env to enable live data.
+  const content =
+    status === "disabled" ? (
+      <div className="project-state">Project list API key is not configured. Add VITE_GOOGLE_SHEETS_API_KEY in .env to enable live data.</div>
+    ) : status === "loading" ? (
+      <div className="project-state">Loading project data...</div>
+    ) : status === "error" ? (
+      <div className="project-state">Could not load project data: {errorMessage}</div>
+    ) : !projects.length ? (
+      <div className="project-state">No project data found.</div>
+    ) : (
+      <div className="project-data">
+        {projects.map((project, index) => {
+          const statusLabel = STATUS[Number.parseInt(project.status || "-1", 10)] || "Unknown";
+          const sectionLabel = SECTIONS[Number.parseInt(project.section || "-1", 10)] || "Unknown";
+
+          return (
+            <a key={`${project.title || "project"}-${index}`} href={safeUrl(project.url)} target="_blank" rel="noreferrer">
+              <article className="project-item">
+                <h3>{project.title || "Untitled project"}</h3>
+                {project.desc ? <p>{project.desc}</p> : null}
+                <p className="project-meta">
+                  Status: {statusLabel} | Section: {sectionLabel}
+                  {project.location ? ` | Location: ${project.location}` : ""}
+                </p>
+              </article>
+            </a>
+          );
+        })}
       </div>
     );
-  }
-
-  if (status === "loading") {
-    return <div className="project-state">Loading project data...</div>;
-  }
-
-  if (status === "error") {
-    return <div className="project-state">Could not load project data: {errorMessage}</div>;
-  }
-
-  if (!projects.length) {
-    return <div className="project-state">No project data found.</div>;
-  }
 
   return (
-    <div className="project-data">
-      {projects.map((project, index) => {
-        const statusLabel = STATUS[Number.parseInt(project.status || "-1", 10)] || "Unknown";
-        const sectionLabel = SECTIONS[Number.parseInt(project.section || "-1", 10)] || "Unknown";
-
-        return (
-          <a key={`${project.title || "project"}-${index}`} href={safeUrl(project.url)} target="_blank" rel="noreferrer">
-            <article className="project-item">
-              <h3>{project.title || "Untitled project"}</h3>
-              {project.desc ? <p>{project.desc}</p> : null}
-              <p className="project-meta">
-                Status: {statusLabel} | Section: {sectionLabel}
-                {project.location ? ` | Location: ${project.location}` : ""}
-              </p>
-            </article>
-          </a>
-        );
-      })}
-    </div>
+    <>
+      <br />
+      <br />
+      <CodeText>Live project data:</CodeText>
+      <br />
+      <br />
+      {content}
+    </>
   );
 }

@@ -18,6 +18,25 @@ function animateRatio(toTop, toScale = 1, toX = 0, toY = 0, startFromZero = fals
 }
 
 /**
+ * Apply default static transforms to all formula elements.
+ */
+function applyStaticTransforms() {
+  const ring = /** @type {HTMLElement | null} */ (document.querySelector(".formula-ring"));
+  const formula1 = /** @type {HTMLElement | null} */ (document.querySelector(".formula-1"));
+  const formula2 = /** @type {HTMLElement | null} */ (document.querySelector(".formula-2"));
+  const formula3 = /** @type {HTMLElement | null} */ (document.querySelector(".formula-3"));
+  const formula4 = /** @type {HTMLElement | null} */ (document.querySelector(".formula-4"));
+  const formula5 = /** @type {HTMLElement | null} */ (document.querySelector(".formula-5"));
+  /** @type {HTMLElement[]} */
+  const formulas = [ring, formula1, formula2, formula3, formula4, formula5].filter((node) => node !== null);
+
+  formulas.forEach((node) => {
+    node.style.transform = "scale(1) translateX(0px) translateY(0px)";
+    node.style.display = "block";
+  });
+}
+
+/**
  * @param {boolean} animationEnabled
  * @param {boolean} startFromZero
  */
@@ -28,11 +47,38 @@ export default function useScrollAnimation(animationEnabled, startFromZero) {
       return undefined;
     }
 
-    animatedObject.style.display = animationEnabled ? "block" : "none";
-
     if (!animationEnabled) {
-      return undefined;
+      animatedObject.style.display = "block";
+      animatedObject.classList.add("disabled-static");
+      applyStaticTransforms();
+
+      function handleStaticScroll() {
+        const toTop = window.scrollY;
+        const fadeDistance = 1000;
+        const opacity = Math.max(0, 1 - toTop / fadeDistance);
+
+        const ring = /** @type {HTMLElement | null} */ (document.querySelector(".formula-ring"));
+        const formula1 = /** @type {HTMLElement | null} */ (document.querySelector(".formula-1"));
+        const formula2 = /** @type {HTMLElement | null} */ (document.querySelector(".formula-2"));
+        const formula3 = /** @type {HTMLElement | null} */ (document.querySelector(".formula-3"));
+        const formula4 = /** @type {HTMLElement | null} */ (document.querySelector(".formula-4"));
+        const formula5 = /** @type {HTMLElement | null} */ (document.querySelector(".formula-5"));
+        /** @type {HTMLElement[]} */
+        const formulas = [ring, formula1, formula2, formula3, formula4, formula5].filter((node) => node !== null);
+
+        formulas.forEach((node) => {
+          node.style.opacity = String(opacity);
+        });
+      }
+
+      window.addEventListener("scroll", handleStaticScroll, { passive: true });
+      handleStaticScroll();
+
+      return () => window.removeEventListener("scroll", handleStaticScroll);
     }
+
+    animatedObject.style.display = "block";
+    animatedObject.classList.remove("disabled-static");
 
     function handleScroll() {
       const toTop = window.scrollY;

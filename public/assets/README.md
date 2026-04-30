@@ -1,7 +1,7 @@
 
 ## Formation React Native
 - react-navigation/native
-- varibles.ts (or style variable "font:;")
+- variables.ts (or style variable "font:;")
 - effector stores (useStoreMap should return an object instead of undefined value or it will not sync with the listener)
 - axios get with generated namespaces and requests
 - navigation drawer
@@ -18,7 +18,7 @@
 - keyboardAvoidingView native
 - git amend & prune
 - prisma db
-- array manipultation with flat map filter reduce
+- array manipulation with flat map filter reduce
 - react context principles 
 - cursor tests, vscode agent, gemini labwork
 - 

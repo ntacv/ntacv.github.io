@@ -2,8 +2,23 @@
 
 Track current and upcoming work for the ntacv.github.io React migration and feature development.
 
-**Updated**: April 22, 2026  
-**Active branch**: `feat/react-migration`
+**Updated**: April 30, 2026  
+**Active branch**: `feat/improve-migration`
+
+---
+
+## Sheet-Driven Data (v0.3.1)
+
+**Status**: Complete ✅
+
+- [x] Create shared `sheetHelpers.js` utility module for sheet data parsing/validation
+- [x] Add `useContactsData` hook to fetch media links from 'contacts' sheet tab
+- [x] Refactor `SocialLinks` component to render sheet-driven contacts with fallback
+- [x] Add `useWordings` hook to fetch homepage copy from 'wording' sheet tab
+- [x] Update `HomePage` to use sheet-driven wording for section labels and intro text
+- [x] Rework `LiveCard` to parse section legend from project sheet columns k-p
+- [x] Verify build and dev server functionality; confirm graceful fallback when API key missing
+- [ ] Document sheet schema and column mappings in `.github/instructions/`
 
 ---
 
