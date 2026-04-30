@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import CodeText from "./CodeText";
+import { safeUrl, isUnknownValue, isTrueValue, uniqueSorted } from "../lib/sheetHelpers";
 
 const DOC_ID = "1xg-OM_tXRPOKN7Nd3BwPuxDFokHko9c7_MewAPGpj-A";
 const SHEET_ID = "projects";
@@ -13,17 +14,6 @@ const STATUS = {
   3: "Should improve",
   4: "Open to suggestions",
   5: "Done",
-};
-
-/** @type {Record<number, string>} */
-const SECTIONS = {
-  0: "dev (php projects)",
-  1: "elec (coding for 13 years)",
-  2: "photo",
-  3: "video",
-  4: "typo (comm apple, rov, ved)",
-  5: "prototypes (maquettes, 3d models)",
-  6: "articles (esilv, medium, typo research)",
 };
 
 /**
@@ -44,10 +34,56 @@ const SECTIONS = {
  */
 
 /**
+ * Parse section legend from sheet columns k-p.
+ * Expected format: column k = section id/number, column l = section name, column m = section description.
+ * @param {string[][] | undefined} values
+ * @returns {Record<number, string>}
+ */
+function parseSectionLegend(values) {
+  if (!Array.isArray(values) || values.length < 2) {
+    return {};
+  }
+
+  const result = /** @type {Record<number, string>} */ ({});
+
+  // Legend is typically in columns k (10), l (11), m (12), etc.
+  // Row 1 is headers, so start from row 2 (index 1)
+  for (let i = 1; i < values.length; i++) {
+    const row = values[i];
+    if (!row || row.length < 11) {
+      continue;
+    }
+
+    const idValue = String(row[10] || "").trim(); // Column K (index 10)
+    const nameValue = String(row[11] || "").trim(); // Column L (index 11)
+
+    if (idValue && nameValue) {
+      const id = Number.parseInt(idValue, 10);
+      if (!Number.isNaN(id)) {
+        result[id] = nameValue;
+      }
+    }
+  }
+
+  // Return result, or fallback to hardcoded sections if legend is empty
+  return Object.keys(result).length > 0
+    ? result
+    : {
+        0: "dev (php projects)",
+        1: "elec (coding for 13 years)",
+        2: "photo",
+        3: "video",
+        4: "typo (comm apple, rov, ved)",
+        5: "prototypes (maquettes, 3d models)",
+        6: "articles (esilv, medium, typo research)",
+      };
+}
+
+/**
  * @param {string[][] | undefined} values
  * @returns {ProjectRow[]}
  */
-function mapRows(values) {
+function mapRowsSimple(values) {
   if (!Array.isArray(values) || values.length < 2) {
     return [];
   }
@@ -64,27 +100,12 @@ function mapRows(values) {
 }
 
 /**
+ * Helper to format text: trim and uppercase fallback on empty.
  * @param {string | null | undefined} value
  * @returns {string}
  */
 function text(value) {
   return String(value || "").trim();
-}
-
-/**
- * @param {string | null | undefined} url
- * @returns {string}
- */
-function safeUrl(url) {
-  if (!url) {
-    return "#";
-  }
-
-  try {
-    return new URL(url).toString();
-  } catch {
-    return "#";
-  }
 }
 
 /**
@@ -105,36 +126,19 @@ function safeImageUrl(image) {
 }
 
 /**
- * @param {string | null | undefined} value
- * @returns {boolean}
- */
-function isUnknownValue(value) {
-  const normalized = text(value).toLowerCase();
-  return !normalized || normalized === "unknown";
-}
-
-/**
- * @param {string | null | undefined} value
- * @returns {boolean}
- */
-function isTrueValue(value) {
-  const normalized = text(value).toLowerCase();
-  return ["true", "1", "yes", "on"].includes(normalized);
-}
-
-/**
  * @param {ProjectRow[]} rows
+ * @param {Record<number, string>} sections
  * @returns {LiveProject[]}
  */
-function mapLiveProjects(rows) {
+function mapLiveProjects(rows, sections) {
   return rows.map((project, index) => {
     const status = STATUS[Number.parseInt(project.status || "-1", 10)] || "";
-    const section = SECTIONS[Number.parseInt(project.section || "-1", 10)] || "";
+    const section = sections[Number.parseInt(project.section || "-1", 10)] || "";
 
     return {
       id: `${text(project.title) || "project"}-${index}`,
       title: text(project.title) || "Untitled project",
-      url: safeUrl(project.url),
+      url: safeUrl(project.url) || "#",
       status,
       location: text(project.location),
       section,
@@ -146,19 +150,12 @@ function mapLiveProjects(rows) {
 }
 
 /**
- * @param {string[]} values
- * @returns {string[]}
- */
-function uniqueSorted(values) {
-  return [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b));
-}
-
-/**
  * Live project browser with card/list toggle and tag filters.
  * @returns {React.ReactElement}
  */
 export default function LiveCard() {
   const [projects, setProjects] = useState(/** @type {LiveProject[]} */ ([]));
+  const [sections, setSections] = useState(/** @type {Record<number, string>} */ ({}));
   const [status, setStatus] = useState("loading");
   const [errorMessage, setErrorMessage] = useState("");
   const [viewMode, setViewMode] = useState("card");
@@ -194,8 +191,13 @@ export default function LiveCard() {
         }
 
         const payload = await response.json();
-        const rows = mapRows(payload.values);
-        setProjects(mapLiveProjects(rows));
+        // Parse section legend from columns k-p
+        const parsedSections = parseSectionLegend(payload.values);
+        setSections(parsedSections);
+
+        // Map project rows (A:J are project columns)
+        const rows = mapRowsSimple(payload.values);
+        setProjects(mapLiveProjects(rows, parsedSections));
         setStatus("success");
       } catch (error) {
         if (error instanceof Error && error.name === "AbortError") {

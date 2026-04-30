@@ -8,6 +8,7 @@ import Mosaic from "../components/Mosaic";
 import SocialLinks from "../components/SocialLinks";
 import { HOBBY_CARDS, PROJECT_CARDS } from "../data/content";
 import useScrollAnimation from "../hooks/useScrollAnimation";
+import { useWordings, getWording } from "../hooks/useWordings";
 
 const DOC_ID = "1xg-OM_tXRPOKN7Nd3BwPuxDFokHko9c7_MewAPGpj-A";
 const TOGGLES_SHEET_ID = "toggles";
@@ -102,6 +103,8 @@ export default function HomePage() {
   const [animationEnabled, setAnimationEnabled] = useState(true);
   const [startFromZero, setStartFromZero] = useState(false);
   const [sectionToggles, setSectionToggles] = useState(/** @type {Record<string, boolean>} */ ({}));
+
+  const { wordings } = useWordings("en");
 
   const key = import.meta.env.VITE_GOOGLE_SHEETS_API_KEY;
   const togglesApiUrl = useMemo(() => {
@@ -202,8 +205,7 @@ export default function HomePage() {
 
           {showIntro ? (
             <p>
-              Lorem ipsum dolor... I am Nathan, an engineer from <a href="https://www.esilv.fr/en/" target="_blank" rel="noreferrer">ESILV</a>. This is not a
-              professional presentation so you can find my contacts down there. Thank you for reading and I like critics if you have some.
+              {getWording(wordings, "intro-text", "Lorem ipsum dolor... I am Nathan, an engineer from ESILV. This is not a professional presentation so you can find my contacts down there. Thank you for reading and I like critics if you have some.")}
             </p>
           ) : null}
 
@@ -211,7 +213,7 @@ export default function HomePage() {
             <>
               <br />
               <br />
-              <CodeText>To contact me:</CodeText>
+              <CodeText>{getWording(wordings, "contacts-label", "To contact me:")}</CodeText>
               <br />
               <br />
               <SocialLinks />
@@ -222,7 +224,7 @@ export default function HomePage() {
             <>
               <br />
               <br />
-              <CodeText>Languages I learned:</CodeText>
+              <CodeText>{getWording(wordings, "languages-label", "Languages I learned:")}</CodeText>
               <br />
               <br />
               <LanguageDataList />
@@ -232,7 +234,7 @@ export default function HomePage() {
           {showProjects ? (
             <>
               <br />
-              <CodeText>The projects I have done:</CodeText>
+              <CodeText>{getWording(wordings, "projects-label", "The projects I have done:")}</CodeText>
               <br />
               <br />
               <CardContainer className="project-cards-grid">
@@ -249,7 +251,7 @@ export default function HomePage() {
             <>
               <br />
               <br />
-              <CodeText>What I like to do:</CodeText>
+              <CodeText>{getWording(wordings, "hobbies-label", "What I like to do:")}</CodeText>
               <br />
               <br />
               <CardContainer>
@@ -266,7 +268,7 @@ export default function HomePage() {
             <>
               <br />
               <br />
-              <CodeText>Photography:</CodeText>
+              <CodeText>{getWording(wordings, "photography-label", "Photography:")}</CodeText>
               <br />
               <br />
               <Mosaic />

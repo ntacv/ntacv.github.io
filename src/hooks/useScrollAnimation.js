@@ -51,7 +51,30 @@ export default function useScrollAnimation(animationEnabled, startFromZero) {
       animatedObject.style.display = "block";
       animatedObject.classList.add("disabled-static");
       applyStaticTransforms();
-      return undefined;
+
+      function handleStaticScroll() {
+        const toTop = window.scrollY;
+        const fadeDistance = 1000;
+        const opacity = Math.max(0, 1 - toTop / fadeDistance);
+
+        const ring = /** @type {HTMLElement | null} */ (document.querySelector(".formula-ring"));
+        const formula1 = /** @type {HTMLElement | null} */ (document.querySelector(".formula-1"));
+        const formula2 = /** @type {HTMLElement | null} */ (document.querySelector(".formula-2"));
+        const formula3 = /** @type {HTMLElement | null} */ (document.querySelector(".formula-3"));
+        const formula4 = /** @type {HTMLElement | null} */ (document.querySelector(".formula-4"));
+        const formula5 = /** @type {HTMLElement | null} */ (document.querySelector(".formula-5"));
+        /** @type {HTMLElement[]} */
+        const formulas = [ring, formula1, formula2, formula3, formula4, formula5].filter((node) => node !== null);
+
+        formulas.forEach((node) => {
+          node.style.opacity = String(opacity);
+        });
+      }
+
+      window.addEventListener("scroll", handleStaticScroll, { passive: true });
+      handleStaticScroll();
+
+      return () => window.removeEventListener("scroll", handleStaticScroll);
     }
 
     animatedObject.style.display = "block";
