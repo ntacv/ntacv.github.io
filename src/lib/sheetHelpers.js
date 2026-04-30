@@ -73,13 +73,42 @@ export function parsePercent(value) {
 }
 
 /**
- * Validate a hex color; return the color if valid, or a fallback.
+ * Validate a color; accept hex colors or CSS color names, return the color if valid, or a fallback.
  * @param {string} color
  * @param {string} fallback - Default color if input is invalid
  * @returns {string}
  */
 export function safeColor(color, fallback = "#3498DB") {
-  return /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(color) ? color : fallback;
+  if (!color) return fallback;
+  
+  const trimmed = String(color).trim();
+  
+  // Check if it's a valid hex color (#RGB or #RRGGBB)
+  if (/^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(trimmed)) {
+    return trimmed;
+  }
+  
+  // Check if it's a valid CSS color name
+  // Use a simple approach: try to set it on a canvas and see if it's recognized
+  // For performance, maintain a list of common CSS color names
+  const cssColors = new Set([
+    "red", "blue", "green", "yellow", "orange", "purple", "pink", "cyan", "magenta",
+    "lime", "navy", "teal", "olive", "maroon", "aqua", "silver", "gray", "grey",
+    "white", "black", "brown", "coral", "gold", "indigo", "khaki", "salmon", "tan",
+    "tomato", "turquoise", "violet", "wheat", "crimson", "darkblue", "darkgreen",
+    "darkred", "darkgray", "darkgrey", "lightblue", "lightgreen", "lightgray",
+    "lightgrey", "lightcyan", "lightyellow", "lightcoral", "lightsalmon", "lightskyblue",
+    "lightslategray", "lightslategrey", "lightsteelblue", "honeydew", "ivory", "lavender",
+    "lavenderblush", "lemonchiffon", "linen", "mistyrose", "oldlace", "papayawhip",
+    "peachpuff", "seashell", "snow", "whitesmoke", "darkslategray", "darkslategrey",
+    "dimgray", "dimgrey", "slategray", "slategrey"
+  ]);
+  
+  if (cssColors.has(trimmed.toLowerCase())) {
+    return trimmed;
+  }
+  
+  return fallback;
 }
 
 /**

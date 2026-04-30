@@ -5,6 +5,7 @@ import { safeUrl, isUnknownValue, isTrueValue, uniqueSorted } from "../lib/sheet
 const DOC_ID = "1xg-OM_tXRPOKN7Nd3BwPuxDFokHko9c7_MewAPGpj-A";
 const SHEET_ID = "projects";
 const OTHER_FILTER_VALUE = "__other__";
+const FILTER_ALL_VALUE = "all";
 
 /** @type {Record<number, string>} */
 const STATUS = {
@@ -150,6 +151,60 @@ function mapLiveProjects(rows, sections) {
 }
 
 /**
+ * @param {Object} props
+ * @param {string} props.label
+ * @param {string} props.filterKey
+ * @param {string[]} props.options
+ * @param {boolean} props.hasOther
+ * @param {string} props.currentValue
+ * @param {(nextValue: string) => void} props.onChange
+ * @returns {React.ReactElement}
+ */
+function FilterTabs({ label, filterKey, options, hasOther, currentValue, onChange }) {
+  return (
+    <div className="live-card-filter-group">
+      <span className="live-card-filter-label">{label}</span>
+      <div className="live-card-view-toggle live-card-filter-tabs" role="tablist" aria-label={label}>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={currentValue === FILTER_ALL_VALUE}
+          className={currentValue === FILTER_ALL_VALUE ? "live-card-view-button active" : "live-card-view-button"}
+          onClick={() => onChange(FILTER_ALL_VALUE)}
+        >
+          All
+        </button>
+
+        {options.map((option) => (
+          <button
+            key={`${filterKey}-${option}`}
+            type="button"
+            role="tab"
+            aria-selected={currentValue === option}
+            className={currentValue === option ? "live-card-view-button active" : "live-card-view-button"}
+            onClick={() => onChange(option)}
+          >
+            {option}
+          </button>
+        ))}
+
+        {hasOther ? (
+          <button
+            type="button"
+            role="tab"
+            aria-selected={currentValue === OTHER_FILTER_VALUE}
+            className={currentValue === OTHER_FILTER_VALUE ? "live-card-view-button active" : "live-card-view-button"}
+            onClick={() => onChange(OTHER_FILTER_VALUE)}
+          >
+            Other
+          </button>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
+/**
  * Live project browser with card/list toggle and tag filters.
  * @returns {React.ReactElement}
  */
@@ -159,9 +214,9 @@ export default function LiveCard() {
   const [status, setStatus] = useState("loading");
   const [errorMessage, setErrorMessage] = useState("");
   const [viewMode, setViewMode] = useState("card");
-  const [statusFilter, setStatusFilter] = useState("all");
-  const [locationFilter, setLocationFilter] = useState("all");
-  const [sectionFilter, setSectionFilter] = useState("all");
+  const [statusFilter, setStatusFilter] = useState(FILTER_ALL_VALUE);
+  const [locationFilter, setLocationFilter] = useState(FILTER_ALL_VALUE);
+  const [sectionFilter, setSectionFilter] = useState(FILTER_ALL_VALUE);
 
   const key = import.meta.env.VITE_GOOGLE_SHEETS_API_KEY;
   const apiUrl = useMemo(() => {
@@ -281,83 +336,11 @@ export default function LiveCard() {
       </div>
 
       <div className="live-card-filters">
-        <div className="live-card-filter-group">
-          <span className="live-card-filter-label">Status</span>
-          <button type="button" className={statusFilter === "all" ? "live-card-chip active" : "live-card-chip"} onClick={() => setStatusFilter("all")}>
-            All
-          </button>
-          {statusOptions.map((option) => (
-            <button
-              key={`status-${option}`}
-              type="button"
-              className={statusFilter === option ? "live-card-chip active" : "live-card-chip"}
-              onClick={() => setStatusFilter(option)}
-            >
-              {option}
-            </button>
-          ))}
-          {hasOtherStatus ? (
-            <button
-              type="button"
-              className={statusFilter === OTHER_FILTER_VALUE ? "live-card-chip active" : "live-card-chip"}
-              onClick={() => setStatusFilter(OTHER_FILTER_VALUE)}
-            >
-              Other
-            </button>
-          ) : null}
-        </div>
+        <FilterTabs label="Status" filterKey="status" options={statusOptions} hasOther={hasOtherStatus} currentValue={statusFilter} onChange={setStatusFilter} />
 
-        <div className="live-card-filter-group">
-          <span className="live-card-filter-label">Location</span>
-          <button type="button" className={locationFilter === "all" ? "live-card-chip active" : "live-card-chip"} onClick={() => setLocationFilter("all")}>
-            All
-          </button>
-          {locationOptions.map((option) => (
-            <button
-              key={`location-${option}`}
-              type="button"
-              className={locationFilter === option ? "live-card-chip active" : "live-card-chip"}
-              onClick={() => setLocationFilter(option)}
-            >
-              {option}
-            </button>
-          ))}
-          {hasOtherLocation ? (
-            <button
-              type="button"
-              className={locationFilter === OTHER_FILTER_VALUE ? "live-card-chip active" : "live-card-chip"}
-              onClick={() => setLocationFilter(OTHER_FILTER_VALUE)}
-            >
-              Other
-            </button>
-          ) : null}
-        </div>
+        <FilterTabs label="Location" filterKey="location" options={locationOptions} hasOther={hasOtherLocation} currentValue={locationFilter} onChange={setLocationFilter} />
 
-        <div className="live-card-filter-group">
-          <span className="live-card-filter-label">Section</span>
-          <button type="button" className={sectionFilter === "all" ? "live-card-chip active" : "live-card-chip"} onClick={() => setSectionFilter("all")}>
-            All
-          </button>
-          {sectionOptions.map((option) => (
-            <button
-              key={`section-${option}`}
-              type="button"
-              className={sectionFilter === option ? "live-card-chip active" : "live-card-chip"}
-              onClick={() => setSectionFilter(option)}
-            >
-              {option}
-            </button>
-          ))}
-          {hasOtherSection ? (
-            <button
-              type="button"
-              className={sectionFilter === OTHER_FILTER_VALUE ? "live-card-chip active" : "live-card-chip"}
-              onClick={() => setSectionFilter(OTHER_FILTER_VALUE)}
-            >
-              Other
-            </button>
-          ) : null}
-        </div>
+        <FilterTabs label="Section" filterKey="section" options={sectionOptions} hasOther={hasOtherSection} currentValue={sectionFilter} onChange={setSectionFilter} />
       </div>
 
       {!filteredProjects.length ? (

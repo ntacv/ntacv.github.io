@@ -72,6 +72,15 @@ function isToggleEnabled(toggles, aliases) {
 }
 
 /**
+ * Render trusted wording HTML from the sheet.
+ * @param {string} html
+ * @returns {React.ReactElement}
+ */
+function WordingHtml({ html }) {
+  return <span dangerouslySetInnerHTML={{ __html: html }} />;
+}
+
+/**
  * Render the animated landing page.
  * @returns {React.ReactElement}
  */
@@ -205,7 +214,13 @@ export default function HomePage() {
 
           {showIntro ? (
             <p>
-              {getWording(wordings, "intro-text", "Lorem ipsum dolor... I am Nathan, an engineer from ESILV. This is not a professional presentation so you can find my contacts down there. Thank you for reading and I like critics if you have some.")}
+              <WordingHtml
+                html={getWording(
+                  wordings,
+                  "intro-text",
+                  "Lorem ipsum dolor... I am Nathan, an engineer from ESILV. This is not a professional presentation so you can find my contacts down there. Thank you for reading and I like critics if you have some.",
+                )}
+              />
             </p>
           ) : null}
 

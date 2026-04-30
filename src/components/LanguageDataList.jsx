@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { mapRows, getValue, parsePercent, safeColor, safeUrl } from "../lib/sheetHelpers";
 import LangPercent from "./LangPercent";
 
 const DOC_ID = "1xg-OM_tXRPOKN7Nd3BwPuxDFokHko9c7_MewAPGpj-A";
@@ -7,94 +8,6 @@ const SHEET_ID = "languages";
 /**
  * @typedef {Object.<string, string | null>} LanguageRow
  */
-
-/**
- * @param {string} key
- * @returns {string}
- */
-function normalizeKey(key) {
-  return String(key).trim().toLowerCase().replace(/[^a-z0-9]/g, "");
-}
-
-/**
- * @param {string[][] | undefined} values
- * @returns {LanguageRow[]}
- */
-function mapRows(values) {
-  if (!Array.isArray(values) || values.length < 2) {
-    return [];
-  }
-
-  const [headers, ...rows] = values;
-  const normalizedHeaders = headers.map((header) => normalizeKey(header));
-
-  return rows.map((row) => {
-    /** @type {LanguageRow} */
-    const record = {};
-    normalizedHeaders.forEach((header, index) => {
-      if (!header) {
-        return;
-      }
-
-      record[header] = row[index] ?? null;
-    });
-    return record;
-  });
-}
-
-/**
- * @param {LanguageRow} row
- * @param {string[]} keys
- * @returns {string}
- */
-function getValue(row, keys) {
-  for (const key of keys) {
-    const normalized = normalizeKey(key);
-    const value = row[normalized];
-    if (value) {
-      return String(value).trim();
-    }
-  }
-
-  return "";
-}
-
-/**
- * @param {string} value
- * @returns {number}
- */
-function parsePercent(value) {
-  const parsed = Number.parseFloat(value);
-  if (Number.isNaN(parsed)) {
-    return 0;
-  }
-
-  return Math.max(0, Math.min(100, parsed));
-}
-
-/**
- * @param {string} color
- * @returns {string}
- */
-function safeColor(color) {
-  return /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(color) ? color : "#3498DB";
-}
-
-/**
- * @param {string} url
- * @returns {string | null}
- */
-function safeUrl(url) {
-  if (!url) {
-    return null;
-  }
-
-  try {
-    return new URL(url).toString();
-  } catch {
-    return null;
-  }
-}
 
 /**
  * Render language skill bars loaded from Google Sheets.

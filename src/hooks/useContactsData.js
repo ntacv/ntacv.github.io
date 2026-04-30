@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { buildSheetUrl, mapRows, normalizeKey, safeUrl, safeColor } from "../lib/sheetHelpers";
+import { buildSheetUrl, mapRows, normalizeKey, safeUrl } from "../lib/sheetHelpers";
 
 const DOC_ID = "1xg-OM_tXRPOKN7Nd3BwPuxDFokHko9c7_MewAPGpj-A";
 const SHEET_ID = "contacts";
@@ -38,7 +38,7 @@ function mapContactRow(contact) {
     title: String(contact.title || contact.name || contact.label || "Untitled").trim(),
     url: safeUrl(String(contact.url || contact.href || contact.link || "")) || "#",
     icon: String(contact.icon || contact.type || "globe").trim().toLowerCase() || "globe",
-    color: safeColor(String(contact.color || contact.colour || "")),
+    color: String(contact.color || contact.colour || "").trim(),
     description: String(contact.desc || contact.description || contact.text || "").trim(),
   };
 }

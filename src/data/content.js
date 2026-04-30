@@ -1,20 +1,21 @@
 export const SOCIAL_LINKS = [
-  { icon: "globe", href: "https://ntacv.com", label: "Website" },
-  {
-    icon: "book",
-    href: "https://www.playbook.com/s/ntaportfolio/nathan-s-playbook",
-    label: "Playbook",
-  },
-  { icon: "news", href: "https://ntacknpro.notion.site/", label: "Notion" },
+  { icon: "globe", href: "https://ntacv.com", label: "Website", color: "#2A9D8F" },
   {
     icon: "linkedin",
     href: "https://www.linkedin.com/in/nathanchoukroun/",
     label: "LinkedIn",
+    color: "#0A66C2",
   },
-  { icon: "github", href: "https://github.com/ntacv", label: "GitHub" },
-  { icon: "instagram", href: "https://www.instagram.com/ntacv/", label: "Instagram" },
-  { icon: "youtube", href: "https://www.youtube.com/@enta1973", label: "YouTube" },
-  { icon: "codepen", href: "https://codepen.io/Natroun", label: "CodePen" },
+  { icon: "github", href: "https://github.com/ntacv", label: "GitHub", color: "#24292E" },
+  { icon: "notion", href: "https://ntacknpro.notion.site/", label: "Notion", color: "#111111" },
+  {
+    icon: "book",
+    href: "https://www.playbook.com/s/ntaportfolio/nathan-s-playbook",
+    label: "Playbook",
+    color: "#F4B942",
+  },
+  { icon: "youtube", href: "https://www.youtube.com/@enta1973", label: "YouTube", color: "#FF0000" },
+  { icon: "codepen", href: "https://codepen.io/Natroun", label: "CodePen", color: "#1E1F26" },
 ];
 
 export const PROJECT_CARDS = [
