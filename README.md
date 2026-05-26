@@ -197,3 +197,5 @@ from [a medium article to make iPad cursor](https://blog.prototypr.io/ipad-point
 [visual react development (*to test*)](https://www.reactbricks.com/)
 
 [type design ressources](https://typedesignresources.com/)
+
+[Musée des Beaux-Arts de Montréal](https://www.mbam.qc.ca/)
